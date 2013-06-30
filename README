@@ -1,2 +1,4 @@
 # vim config fle for yy
 # rename this dir to ~/vim/
+# ln -s ./my_vim_conf ~/.vim
+
