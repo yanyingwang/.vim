@@ -1,3 +1,5 @@
+"ln -s ./gvim /etc/vim/gvim  
+"
 " Make external commands work through a pipe instead of a pseudo-tty
 "set noguipty
 
@@ -20,7 +22,6 @@
 "------------------------------------------------------------------
 "
 "
-"ln -s ./gvim /etc/vim/gvim  
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/gvimrc.local")
