@@ -1,20 +1,62 @@
-"ln -s ./gvim /etc/vim/gvim  
-"
-" Make external commands work through a pipe instead of a pseudo-tty
-"set noguipty
-
-" You can also specify a different font, overriding the default font
+"ln -s ./gvim /etc/vim/gvim  " " Make external commands work through a pipe instead of a pseudo-tty "set noguipty " You can also specify a different font, overriding the default font
 "if has('gui_gtk2')
 "  set guifont=\Bitstream\ Vera\ Sans\ Mono\ 12
 "else
 "  set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
-"endif
-
-" If you want to run gvim with a dark background, try using a different
+"endif " If you want to run gvim with a dark background, try using a different
 " colorscheme or running 'gvim -reverse'.
 " http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/ has examples and
 " downloads for the colorschemes on vim.org
 "
+"------------------------------------------------------------------
+"custom added below:
+"------------------------------------------------------------------
+set nu                          "auto line num
+set hlsearch                    "highlight searching
+color molokai
+"color blackboard
+"color Distinguished
+set guifont=\Ubuntu\ Mono\ Bold\ 11
+"set guifont=\Monaco\ Bold\ 9
+
+"""autoload Pathogen
+execute pathogen#infect()
+
+"""Code Folding
+set foldmethod=indent
+set foldlevel=99
+
+"""maps for moving within splitting windows
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+
+"""Task lists
+map <leader>td <Plug>TaskList
+
+
+"""Revision History
+map <leader>g :GundoToggle<CR>
+
+"""Syntax Highlighting and Validation
+syntax on
+filetype on
+"au BufNewFile,BufRead *.sh set filetype=zsh
+filetype plugin on
+filetype plugin indent on
+set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+"""clipboard
+set clipboard=unnamedplus
+set mouse=a		" Enable mouse usage (all modes)
+
+
+
 
 
 "------------------------------------------------------------------
@@ -27,33 +69,6 @@
 if filereadable("/etc/vim/gvimrc.local")
   source /etc/vim/gvimrc.local
 endif
-
-
-"------------------------------------------------------------------
-"custom added below:
-"------------------------------------------------------------------
-set nu                          "auto line num
-syntax on                       "auto syntax color
-filetype indent plugin on       "auto indention
-set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-set hlsearch                    "highlight searching
-"color blackboard
-"color Distinguished
-color molokai
-
-"set guifont for gvim 
-set guifont=\Ubuntu\ Mono\ Bold\ 11
-"set guifont=\Monaco\ Bold\ 9
-
-"""clipboard
-set clipboard=unnamedplus
-
-
-
-
-
-
 
 if has("gui_running")
   function! ScreenFilename()
