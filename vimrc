@@ -2,8 +2,7 @@
 set nu                          "Auto line num
 set hlsearch                    "Highlight Searching
 set t_Co=256
-color pychimp
-"color distinguished
+color molokai
 "set background=dark
 "set background=light
 
