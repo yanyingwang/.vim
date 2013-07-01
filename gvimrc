@@ -44,6 +44,7 @@ color molokai
 
 "set guifont for gvim 
 set guifont=\Ubuntu\ Mono\ Bold\ 11
+"set guifont=\Monaco\ 9
 "set guifont=\Monaco\ Bold\ 9
 
 """clipboard
