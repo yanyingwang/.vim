@@ -2,9 +2,14 @@
 set nu                          "Auto line num
 set hlsearch                    "Highlight Searching
 set t_Co=256
+<<<<<<< HEAD
 "color pychimp
 color molokai
 "color distinguished
+=======
+colorscheme railscasts
+hi Normal ctermbg=NONE
+>>>>>>> 3c8ae171b4f918be020b0f832e7019ea575810d9
 "set background=dark
 "set background=light
 
