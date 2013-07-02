@@ -40,20 +40,36 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+#
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-LC_ALL="en_US.UTF-8"
-LANG="en_US.UTF-8"
-LANGUAGE="en_US:en"
 # Customize to your needs...
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/wyy/Dropbox/1cloud/script
+#
 #--------------------------------------------
 #added by WYY below
 #--------------------------------------------
+export TERM="xterm-256color"
+
+#define variables
+export TERM="xterm-256color"
+
+#Define the languge
+LC_ALL="en_US.UTF-8"
+LANG="en_US.UTF-8"
+LANGUAGE="en_US:en"
+
+#alias ssh=/usr/local/ssh-ident/ssh-ident
 alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
-export TERM="xterm-256color"
+alias mv='mv -i'
+
+for (( i=178; i<=190; i++ ))
+do
+    alias ssh${i}="sshpass -f /home/wyy/Dropbox/1cloud/passwd.txt ssh -p 52222 1cloud@117.135.140.${i}"
+done
+unset $i
+
