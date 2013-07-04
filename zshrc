@@ -70,6 +70,7 @@ alias mv='mv -i'
 for (( i=178; i<=190; i++ ))
 do
     alias ssh${i}="sshpass -f /home/wyy/Dropbox/1cloud/passwd.txt ssh -p 52222 1cloud@117.135.140.${i}"
+    alias scp${i}="scp_file.sh ${i}"
 done
 unset $i
 
