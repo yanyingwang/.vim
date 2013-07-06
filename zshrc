@@ -51,8 +51,6 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 #--------------------------------------------
 #added by WYY below
 #--------------------------------------------
-export TERM="xterm-256color"
-
 #define variables
 export TERM="xterm-256color"
 
