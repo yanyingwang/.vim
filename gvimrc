@@ -2,6 +2,11 @@
 "------------------------------------------------------------------
 "custom added below:
 "------------------------------------------------------------------
+" hide toobar or menus to see more text
+:set guioptions-=m  "remove menu bar
+":set guioptions-=T  "remove toolbar
+":set guioptions-=r  "remove right-hand scroll bar
+
 set nu                          "auto line num
 set hlsearch                    "highlight searching
 color molokai
