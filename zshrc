@@ -72,3 +72,8 @@ do
 done
 unset $i
 
+alias mysql180="mysql -h 117.135.140.180 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
+alias mysql179="mysql -h 117.135.140.179 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
+alias mysql190="mysql -h 117.135.140.190 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
+
+
