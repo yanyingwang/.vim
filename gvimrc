@@ -10,8 +10,6 @@
 set nu                          "auto line num
 set hlsearch                    "highlight searching
 color molokai
-"color blackboard
-"color Distinguished
 set guifont=\Ubuntu\ Mono\ Bold\ 11
 "set guifont=\Monaco\ 9
 
