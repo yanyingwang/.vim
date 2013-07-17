@@ -2,7 +2,8 @@
 set nu                          "Auto line num
 set hlsearch                    "Highlight Searching
 set t_Co=256
-colorscheme molokai
+"colorscheme molokai
+colorscheme grb256
 hi Normal ctermbg=NONE
 "set background=dark
 "set background=light
