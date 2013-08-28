@@ -42,8 +42,8 @@ filetype on
 "au BufNewFile,BufRead *.sh set filetype=zsh
 filetype plugin on
 filetype plugin indent on
-set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
 
 """clipboard
 set clipboard=unnamedplus
