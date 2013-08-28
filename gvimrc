@@ -10,7 +10,8 @@
 set nu                          "auto line num
 set hlsearch                    "highlight searching
 "color molokai
-color jellybeans
+"color jellybeans
+color distinguished
 "set guifont=\Ubuntu\ Mono\ Bold\ 11
 set guifont=\Monaco\ Bold\ 9
 
