@@ -2,9 +2,9 @@
 set nu                          "Auto line num
 set hlsearch                    "Highlight Searching
 set t_Co=256
+"set ls=2
 "colorscheme molokai
 colorscheme jellybeans
-"colorscheme distinguished
 hi Normal ctermbg=NONE
 "set background=dark
 "set background=light
