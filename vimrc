@@ -1,25 +1,37 @@
 "ln -s ./vimrc ~/.vimrc
-set nu                          "Auto line num
-set hlsearch                    "Highlight Searching
+
+set nu                      "Auto line num
+set hlsearch                "Highlight Searching
 set t_Co=256
 "set ls=2
+
+syntax on                   "Syntax Highlighting and Validation
+filetype on
+filetype plugin on
+filetype plugin indent on
+hi Normal ctermbg=NONE
+
 "colorscheme molokai
 colorscheme jellybeans
-hi Normal ctermbg=NONE
 "set background=dark
-"set background=light
 
-" --------------------------------------------------------------------------------
-"Pathogen
-" --------------------------------------------------------------------------------
-"""autoload Pathogen
-execute pathogen#infect()
+set tags=./tags,tags:$HOME
 
-"""Code Folding
-set foldmethod=indent
+
+set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+"au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"au BufNewFile,BufRead *.sh set filetype=zsh
+
+set clipboard=unnamedplus   "murge vim clipboard to system clipboard
+set mouse=a		            "Enable mouse usage (all modes)
+
+                            "autoload Pathogen
+execute pathogen#infect() 
+
+set foldmethod=indent       "Code Folding
 set foldlevel=99
 
-"""maps for moving within splitting windows
+                            "maps for moving within splitting windows
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
@@ -28,26 +40,11 @@ map <c-h> <c-w>h
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
-"""Task lists
+                            "Task lists
 map <leader>td <Plug>TaskList
 
-
-"""Revision History
+                            "Revision History
 map <leader>g :GundoToggle<CR>
-
-"""Syntax Highlighting and Validation
-syntax on
-filetype on
-"au BufNewFile,BufRead *.sh set filetype=zsh
-filetype plugin on
-filetype plugin indent on
-set tabstop=4 expandtab shiftwidth=2 softtabstop=2
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-
-"""clipboard
-set clipboard=unnamedplus
-set mouse=a		" Enable mouse usage (all modes)
-
 
 " configure expanding of tabs for various file types
 "au BufRead,BufNewFile *.py set expandtab
