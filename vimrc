@@ -15,8 +15,7 @@ hi Normal ctermbg=NONE
 colorscheme jellybeans
 "set background=dark
 
-set tags=./tags,tags:$HOME
-
+set tags=./tags;/
 
 set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 "au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
@@ -37,8 +36,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
+map <F8> :TagbarToggle<CR>
+map <F7> :NERDTreeToggle<CR>
 
                             "Task lists
 map <leader>td <Plug>TaskList
