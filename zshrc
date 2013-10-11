@@ -47,32 +47,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 #
-#--------------------------------------------
-#added by WYY below
-#--------------------------------------------
-
-#export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/wyy/Dropbox/shscript
-
-#export TERM="xterm-256color"
-
-#LC_ALL="en_US.UTF-8"
-#LANG="en_US.UTF-8"
-#LANGUAGE="en_US:en"
-
-#alias ll='ls -l'
-#alias rm='rm -i'
-#alias cp='cp -i'
-#alias mv='mv -i'
-
-#for (( i=178; i<=190; i++ ))
-#do
-#    alias ssh${i}="sshpass -f /home/wyy/Dropbox/1cloud/passwd.txt ssh -p 52222 1cloud@117.135.140.${i}"
-#    alias scp${i}="scp_file.sh ${i}"
-#done
-#unset $i
-#alias mysql180="mysql -h 117.135.140.180 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
-#alias mysql179="mysql -h 117.135.140.179 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
-#alias mysql190="mysql -h 117.135.140.190 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
-
-. /home/wyy/Dropbox/script/func_bashrc.sh
+. /home/wyy/Dropbox/script/env_function.sh
 . /home/wyy/Dropbox/script/env_bashrc.sh
