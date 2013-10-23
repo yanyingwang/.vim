@@ -74,5 +74,5 @@ source $ZSH/oh-my-zsh.sh
 #alias mysql179="mysql -h 117.135.140.179 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
 #alias mysql190="mysql -h 117.135.140.190 -u mysql -p$(cat /home/wyy/Dropbox/1cloud/passwd_mysql.txt)"
 
-. /home/wyy/Dropbox/script/env_function.sh
-. /home/wyy/Dropbox/script/env_shrc.sh
+. /home/wyy/Dropbox/script/env-function.sh
+. /home/wyy/Dropbox/script/env-shrc.sh
