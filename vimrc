@@ -3,32 +3,29 @@
 set nu                      "Auto line num
 set hlsearch                "Highlight Searching
 set t_Co=256
+set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 "set ls=2
+set tags=./tags;/
+set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+set clipboard=unnamedplus   "murge vim clipboard to system clipboard
+set mouse=a		            "Enable mouse usage (all modes)
+set foldmethod=indent       "Code Folding
+set foldlevel=99
 
-syntax on                   "Syntax Highlighting and Validation
+syntax on                   
 filetype on
 filetype plugin on
 filetype plugin indent on
 hi Normal ctermbg=NONE
-
-"colorscheme molokai
-colorscheme jellybeans
-"set background=dark
-
-set tags=./tags;/
-
-set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 "au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "au BufNewFile,BufRead *.sh set filetype=zsh
-
-set clipboard=unnamedplus   "murge vim clipboard to system clipboard
-set mouse=a		            "Enable mouse usage (all modes)
+colorscheme jellybeans
+"colorscheme molokai
+"set background=dark
 
                             "autoload Pathogen
 execute pathogen#infect() 
 
-set foldmethod=indent       "Code Folding
-set foldlevel=99
 
                             "maps for moving within splitting windows
 map <c-j> <c-w>j
@@ -38,12 +35,9 @@ map <c-h> <c-w>h
 
 map <F8> :TagbarToggle<CR>
 map <F7> :NERDTreeToggle<CR>
-
-                            "Task lists
 map <leader>td <Plug>TaskList
-
-                            "Revision History
 map <leader>g :GundoToggle<CR>
+
 
 " configure expanding of tabs for various file types
 "au BufRead,BufNewFile *.py set expandtab

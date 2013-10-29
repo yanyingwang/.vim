@@ -2,27 +2,38 @@
 "------------------------------------------------------------------
 "custom added below:
 "------------------------------------------------------------------
-" hide toobar or menus to see more text
-:set guioptions-=m  "remove menu bar
-":set guioptions-=T  "remove toolbar
-":set guioptions-=r  "remove right-hand scroll bar
-
-set nu                          "auto line num
-set hlsearch                    "highlight searching
-"color molokai
-color jellybeans
-"color distinguished
-"set guifont=\Ubuntu\ Mono\ Bold\ 11
-set guifont=\Monaco\ Bold\ 9
-
-"""autoload Pathogen
-execute pathogen#infect()
-
-"""Code Folding
-set foldmethod=indent
+set nu                           "auto line num
+set hlsearch                     "highlight searching
+set foldmethod=indent            "Code Folding
 set foldlevel=99
+set clipboard=unnamedplus        "clipboard
+set mouse=a		                 "Enable mouse usage (all modes)
+"uncomment below hide toobar or menus to see more text
+set guioptions-=m                "remove menu bar
+"set guioptions-=T               "remove toolbar
+"set guioptions-=r               "remove right-hand scroll bar
+set guifont=Monaco\ Bold\ 9
+"set guifont=Ubuntu\ Mono\ Bold\ 11
 
-"""maps for moving within splitting windows
+
+syntax on                        "Syntax Highlighting and Validation
+filetype on
+"au BufNewFile,BufRead *.sh set filetype=zsh
+filetype plugin on
+filetype plugin indent on
+set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+"au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
+
+
+color jellybeans
+"color molokai
+"color distinguished
+
+execute pathogen#infect()
+                                "autoload Pathogen
+
+
+                                "maps for moving within splitting windows
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
@@ -31,25 +42,13 @@ map <c-h> <c-w>h
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
-"""Task lists
+                                "Task lists
 map <leader>td <Plug>TaskList
 
 
-"""Revision History
+                                "Revision History
 map <leader>g :GundoToggle<CR>
 
-"""Syntax Highlighting and Validation
-syntax on
-filetype on
-"au BufNewFile,BufRead *.sh set filetype=zsh
-filetype plugin on
-filetype plugin indent on
-set tabstop=4 expandtab shiftwidth=2 softtabstop=2
-au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
-
-"""clipboard
-set clipboard=unnamedplus
-set mouse=a		" Enable mouse usage (all modes)
 
 
 
@@ -99,6 +98,7 @@ if has("gui_running")
           silent! execute "winpos ".sizepos[3]." ".sizepos[4]
           return
         endif
+
       endfor
     endif
   endfunction
