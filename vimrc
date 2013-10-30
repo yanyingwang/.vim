@@ -12,20 +12,22 @@ set mouse=a		            "Enable mouse usage (all modes)
 set foldmethod=indent       "Code Folding
 set foldlevel=99
 
+colorscheme jellybeans
+"colorscheme railscasts
+"colorscheme molokai
+"set background=dark
+
 syntax on                   
 filetype on
 filetype plugin on
 filetype plugin indent on
+
 hi Normal ctermbg=NONE
 "au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "au BufNewFile,BufRead *.sh set filetype=zsh
-colorscheme jellybeans
-"colorscheme molokai
-"set background=dark
 
                             "autoload Pathogen
 execute pathogen#infect() 
-
 
                             "maps for moving within splitting windows
 map <c-j> <c-w>j
