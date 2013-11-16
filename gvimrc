@@ -25,9 +25,7 @@ set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 "au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
 
 
-color jellybeans
-"color molokai
-"color distinguished
+colorscheme jellybeans
 
 execute pathogen#infect()
                                 "autoload Pathogen
