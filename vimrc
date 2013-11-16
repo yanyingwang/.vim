@@ -12,8 +12,10 @@ set mouse=a		            "Enable mouse usage (all modes)
 set foldmethod=indent       "Code Folding
 set foldlevel=99
 
-colorscheme jellybeans
-"colorscheme railscasts
+"colorscheme jellybeans
+"colorscheme ubloh
+
+colorscheme railscasts
 "colorscheme molokai
 "set background=dark
 
