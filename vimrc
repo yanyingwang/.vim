@@ -1,5 +1,11 @@
 "ln -s ./vimrc ~/.vimrc
 
+syntax on                   
+filetype on
+filetype indent on
+filetype plugin on
+
+
 set nu                        "Auto line num
 set hlsearch                  "Highlight Searching
 set t_Co=256
@@ -8,33 +14,23 @@ set nocompatible              "vim is vim not vi
 set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "Enable mouse usage (all modes)
 
-syntax on                   
-filetype on
-filetype indent on
-filetype plugin on
-
-
-"set background=dark
-colorscheme jellybeans
-
-
-"set ls=2
-"set tags=./tags;/
-"set foldmethod=indent         "Code Folding
-"set foldlevel=99
-
-
-set autoindent               "indent
+set autoindent                "autoindent
 set expandtab
 set tabstop=4 shiftwidth=2 softtabstop=2
 au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
 
 
-hi Normal ctermbg=NONE
-"au BufNewFile,BufRead *.sh set filetype=zsh
+colorscheme jellybeans
+"hi Normal ctermbg=NONE
 
 
-"map <c-j> <c-w>j            "shortcut mapping 
+"-----------------------------"autoload Pathogen
+execute pathogen#infect()
+let g:airline#extensions#tabline#enabled = 1   "airline
+
+
+"-----------------------------"shortcut mapping
+"map <c-j> <c-w>j             
 "map <c-k> <c-w>k
 "map <c-l> <c-w>l
 "map <c-h> <c-w>h
@@ -43,10 +39,4 @@ map <F7> :NERDTreeToggle<CR>
 "map <leader>td <Plug>TaskList
 "map <leader>g :GundoToggle<CR>
 
-
-
-"============================"autoload Pathogen
-execute pathogen#infect()
-
-let g:airline#extensions#tabline#enabled = 1   "airline
 
