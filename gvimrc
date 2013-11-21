@@ -2,6 +2,16 @@
 "------------------------------------------------------------------
 "custom added below:
 "------------------------------------------------------------------
+"
+
+execute pathogen#infect()
+                                "autoload Pathogen
+
+set background=light
+colorscheme solarized
+                                
+
+
 set nu                           "auto line num
 set hlsearch                     "highlight searching
 set foldmethod=indent            "Code Folding
@@ -25,10 +35,6 @@ filetype plugin indent on
 "au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
 
 
-"colorscheme jellybeans
-
-execute pathogen#infect()
-                                "autoload Pathogen
 
 
                                 "maps for moving within splitting windows
