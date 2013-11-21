@@ -299,7 +299,8 @@ endfun
 " }}}
 
 if !exists("g:jellybeans_background_color")
-  let g:jellybeans_background_color = "151515"
+  let g:jellybeans_background_color = "002B36"
+  "let g:jellybeans_background_color = "151515"
 end
 
 call s:X("Normal","e8e8d3",g:jellybeans_background_color,"","White","")

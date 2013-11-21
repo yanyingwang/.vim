@@ -8,7 +8,7 @@ execute pathogen#infect()
 set laststatus=2              "vim-airline doesn't appear until I create a new split
 set ttimeoutlen=50            "There is a pause when leaving insert mode
 "let g:airline#extensions#tabline#enabled = 1
-set noshowmode                "get rid of the default mode indicator
+"set noshowmode                "get rid of the default mode indicator
 
 
 
