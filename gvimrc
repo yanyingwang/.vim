@@ -21,11 +21,11 @@ filetype on
 "au BufNewFile,BufRead *.sh set filetype=zsh
 filetype plugin on
 filetype plugin indent on
-set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+"set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 "au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
 
 
-colorscheme jellybeans
+"colorscheme jellybeans
 
 execute pathogen#infect()
                                 "autoload Pathogen
