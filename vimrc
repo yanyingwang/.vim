@@ -21,6 +21,7 @@ endif
 syntax enable
 "colorscheme solarized
 colorscheme jellybeans
+"colorscheme molokai
 
 
 syntax on                   

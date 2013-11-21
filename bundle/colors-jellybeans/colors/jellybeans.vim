@@ -49,6 +49,7 @@
 
 set background=dark
 
+
 hi clear
 
 if exists("syntax_on")
@@ -298,7 +299,7 @@ endfun
 " }}}
 
 if !exists("g:jellybeans_background_color")
-  let g:jellybeans_background_color = "002B36"
+  let g:jellybeans_background_color = "151515"
 end
 
 call s:X("Normal","e8e8d3",g:jellybeans_background_color,"","White","")
@@ -507,10 +508,12 @@ if !s:low_color
   hi CursorColumn ctermbg=234
   hi CursorLine ctermbg=234
   hi SpecialKey ctermbg=234
-  exec "hi NonText ctermbg=".g:jellybeans_background_color_256
-  exec "hi LineNr ctermbg=".g:jellybeans_background_color_256
+  "exec "hi NonText ctermbg=".g:jellybeans_background_color_256
+  exec "hi NonText          ctermfg=252 ctermbg=NONE"
+  "exec "hi LineNr ctermbg=".g:jellybeans_background_color_256
+  exec "hi LineNr          ctermfg=252 ctermbg=NONE"
   hi DiffText ctermfg=81
-  exec "hi Normal ctermfg=".g:jellybeans_background_color_256
+  "exec "hi Normal ctermfg=".g:jellybeans_background_color_256
    exec "hi Normal          ctermfg=252 ctermbg=NONE"
 
   hi DbgBreakPt ctermbg=53
