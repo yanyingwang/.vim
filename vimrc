@@ -19,7 +19,6 @@ else
 endif
 
 syntax enable
-set background=dark
 "colorscheme solarized
 colorscheme jellybeans
 
