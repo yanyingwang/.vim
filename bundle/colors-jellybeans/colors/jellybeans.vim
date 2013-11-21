@@ -498,11 +498,11 @@ hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","B9ED67","405026","","White","Green")
 
 if !exists("g:jellybeans_background_color_256")
-  let g:jellybeans_background_color_256=233
+  "let g:jellybeans_background_color_256=233
 end
 " Manual overrides for 256-color terminals. Dark colors auto-map badly.
 if !s:low_color
-  hi StatusLineNC ctermbg=235
+  hi StatusLineNC ctermbg=235  
   hi Folded ctermbg=236
   hi FoldColumn ctermbg=234
   hi SignColumn ctermbg=236
@@ -515,7 +515,7 @@ if !s:low_color
   exec "hi LineNr          ctermfg=252 ctermbg=NONE"
   hi DiffText ctermfg=81
   "exec "hi Normal ctermfg=".g:jellybeans_background_color_256
-   exec "hi Normal          ctermfg=252 ctermbg=NONE"
+  exec "hi Normal          ctermfg=252 ctermbg=NONE"
 
   hi DbgBreakPt ctermbg=53
   hi IndentGuidesOdd ctermbg=235
