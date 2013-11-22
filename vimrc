@@ -19,9 +19,8 @@ else
 endif
 
 syntax enable
-"colorscheme solarized
-colorscheme jellybeans
-"colorscheme molokai
+colorscheme solarized
+"colorscheme jellybeans
 
 
 syntax on                   
