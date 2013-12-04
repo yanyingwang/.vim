@@ -44,10 +44,10 @@ au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
 
 
 "-----------------------------"shortcut mapping
-"map <c-j> <c-w>j             
-"map <c-k> <c-w>k
-"map <c-l> <c-w>l
-"map <c-h> <c-w>h
+map <c-j> <c-w>j             
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 map <F8> :TagbarToggle<CR>
 map <F7> :NERDTreeToggle<CR>
 "map <leader>td <Plug>TaskList
