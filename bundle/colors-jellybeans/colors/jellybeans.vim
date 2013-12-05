@@ -49,6 +49,7 @@
 
 set background=dark
 
+
 hi clear
 
 if exists("syntax_on")
@@ -297,9 +298,10 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
 endfun
 " }}}
 
-if !exists("g:jellybeans_background_color")
-  let g:jellybeans_background_color = "151515"
-end
+let g:jellybeans_background_color = "002b36"
+"if !exists("g:jellybeans_background_color")
+"  let g:jellybeans_background_color = "151515"
+"end
 
 call s:X("Normal","e8e8d3",g:jellybeans_background_color,"","White","")
 set background=dark
@@ -495,9 +497,10 @@ call s:X("IndentGuidesEven","","1b1b1b","","","")
 hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","B9ED67","405026","","White","Green")
 
-if !exists("g:jellybeans_background_color_256")
-  let g:jellybeans_background_color_256=233
-end
+  let g:jellybeans_background_color_256=8
+"if !exists("g:jellybeans_background_color_256")
+"  let g:jellybeans_background_color_256=233
+"end
 " Manual overrides for 256-color terminals. Dark colors auto-map badly.
 if !s:low_color
   hi StatusLineNC ctermbg=235
@@ -508,10 +511,13 @@ if !s:low_color
   hi CursorLine ctermbg=234
   hi SpecialKey ctermbg=234
   exec "hi NonText ctermbg=".g:jellybeans_background_color_256
+  "exec "hi NonText          ctermfg=252 ctermbg=NONE"
   exec "hi LineNr ctermbg=".g:jellybeans_background_color_256
+  "exec "hi LineNr          ctermfg=252 ctermbg=NONE"
   hi DiffText ctermfg=81
-  "exec "hi Normal ctermbg=".g:jellybeans_background_color_256
+  "exec "hi Normal ctermfg=".g:jellybeans_background_color_256
   exec "hi Normal          ctermfg=252 ctermbg=NONE"
+
   hi DbgBreakPt ctermbg=53
   hi IndentGuidesOdd ctermbg=235
   hi IndentGuidesEven ctermbg=234
