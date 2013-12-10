@@ -44,12 +44,11 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
+map <F8> :TagbarToggle<CR>
+map <F7> :NERDTreeToggle<CR>
 
                                 "Task lists
-map <leader>td <Plug>TaskList
+"map <leader>td <Plug>TaskList
 
 
                                 "Revision History

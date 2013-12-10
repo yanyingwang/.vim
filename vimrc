@@ -50,7 +50,7 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 map <F8> :TagbarToggle<CR>
 map <F7> :NERDTreeToggle<CR>
-"map <leader>td <Plug>TaskList
-"map <leader>g :GundoToggle<CR>
+map <leader>td <Plug>TaskList
+map <leader>g :GundoToggle<CR>
 
 
