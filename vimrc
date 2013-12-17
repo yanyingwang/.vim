@@ -7,9 +7,9 @@ execute pathogen#infect()
 "-----------------------------"airline
 set laststatus=2              "vim-airline doesn't appear until I create a new split
 set ttimeoutlen=50            "There is a pause when leaving insert mode
-let g:airline#extensions#tabline#enabled = 1
-set noshowmode                "get rid of the default mode indicator
-let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
+"let g:airline#extensions#tabline#enabled = 1
+"set noshowmode                "get rid of the default mode indicator
+"let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
 
 
 
