@@ -45,14 +45,25 @@ au FileType sh set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
+"-----------------------------"CtrlP shotcut mapp to Ctrl
+"let g:ctrlp_map = '<c-l>'
+"let g:ctrlp_cmd = 'CtrlP'
 
-"-----------------------------"shortcut mapping
+"-----------------------------"windows moving shortcut mapping
 map <c-j> <c-w>j             
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+"-----------------------------"original <c-n> move to 'tab complete'
+map <c-l> :bn<CR> 
+map <c-h> :bp<CR> 
+map <c-b>l :bn<CR> 
+map <c-b>h :bp<CR> 
+
 map <F8> :TagbarToggle<CR>
 map <F7> :NERDTreeToggle<CR>
+
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 
