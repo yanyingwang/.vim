@@ -18,10 +18,10 @@ set hlsearch                     "highlight searching
 set foldmethod=indent            "Code Folding
 set foldlevel=99
 set clipboard=unnamedplus        "clipboard
-set mouse=a		                 "Enable mouse usage (all modes)
-"uncomment below hide toobar or menus to see more text
+set mouse=a		         "Enable mouse usage (all modes)
+"--------------------------------"uncomment below hide toobar or menus to see more text
 set guioptions-=m                "remove menu bar
-set guioptions-=T               "remove toolbar
+"set guioptions-=T                "remove toolbar
 "set guioptions-=r               "remove right-hand scroll bar
 set guifont=Monaco\ 9
 "set guifont=Monaco\ Bold\ 9
@@ -39,7 +39,7 @@ filetype plugin indent on
 
 
 
-                                "maps for moving within splitting windows
+"--------------------------------"maps for moving within splitting windows
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
@@ -47,11 +47,11 @@ map <c-h> <c-w>h
 map <F8> :TagbarToggle<CR>
 map <F7> :NERDTreeToggle<CR>
 
-                                "Task lists
+"-------------------------------"Task lists
 "map <leader>td <Plug>TaskList
 
 
-                                "Revision History
+"-------------------------------"Revision History
 map <leader>g :GundoToggle<CR>
 
 
@@ -74,9 +74,9 @@ map <leader>g :GundoToggle<CR>
 "
 "
 " Source a global configuration file if available
-if filereadable("/etc/vim/gvimrc.local")
-  source /etc/vim/gvimrc.local
-endif
+"if filereadable("/etc/vim/gvimrc.local")
+"  source /etc/vim/gvimrc.local
+"endif
 
 if has("gui_running")
   function! ScreenFilename()
