@@ -39,7 +39,7 @@ set mouse=a		              "Enable mouse usage (all modes)
 
 set autoindent                "autoindent
 set expandtab
-set tabstop=8 shiftwidth=4 softtabstop=4
+"set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType sh set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
