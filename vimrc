@@ -12,6 +12,10 @@ set noshowmode                "get rid of the default mode indicator
 let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
 
 
+"-----------------------------"auto save
+:set autowriteall             "save the file when you switch buffers
+:au FocusLost * :wa           "save file when focusLost
+
 
 if has('gui_running')
     set background=light
