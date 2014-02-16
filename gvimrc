@@ -18,17 +18,10 @@ set hlsearch                     "highlight searching
 set foldmethod=indent            "Code Folding
 set foldlevel=99
 set clipboard=unnamedplus        "clipboard
-<<<<<<< HEAD
-set mouse=a		                 "Enable mouse usage (all modes)
-"uncomment below hide toobar or menus to see more text
-"set guioptions-=m                "remove menu bar
-set guioptions-=T               "remove toolbar
-=======
 set mouse=a		         "Enable mouse usage (all modes)
 "--------------------------------"uncomment below hide toobar or menus to see more text
 set guioptions-=m                "remove menu bar
 "set guioptions-=T                "remove toolbar
->>>>>>> 76cf54f7c9f788625c9e090575c70f1c566d674a
 "set guioptions-=r               "remove right-hand scroll bar
 set guifont=Monaco\ 9
 "set guifont=Monaco\ Bold\ 9
