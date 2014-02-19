@@ -4,7 +4,7 @@
 " Author:      Jan Larres <jan@majutsushi.net>
 " Licence:     Vim licence
 " Website:     http://majutsushi.github.com/tagbar/
-" Version:     2.6.1
+" Version:     2.5
 " Note:        This plugin was heavily inspired by the 'Taglist' plugin by
 "              Yegappan Lakshmanan and uses a small amount of code from it.
 "
@@ -58,7 +58,6 @@ let s:winrestcmd      = ''
 let s:short_help      = 1
 let s:nearby_disabled = 0
 let s:paused = 0
-let s:pwin_by_tagbar = 0
 
 let s:window_expanded   = 0
 let s:expand_bufnr = -1
@@ -70,6 +69,7 @@ let s:window_pos = {
 " Script-local variable needed since compare functions can't
 " take extra arguments
 let s:compare_typeinfo = {}
+
 
 let s:visibility_symbols = {
     \ 'public'    : '+',
@@ -547,8 +547,6 @@ function! s:InitTypes() abort
         \ 'function' : 'f'
     \ }
     let s:known_types.python = type_python
-    let s:known_types.pyrex  = type_python
-    let s:known_types.cython = type_python
     " REXX {{{3
     let type_rexx = s:TypeInfo.New()
     let type_rexx.ctagstype = 'rexx'
@@ -924,13 +922,12 @@ function! s:MapKeys() abort
                             \ <LeftRelease><C-o>:call <SID>CheckMouseClick()<CR>
 
     let maps = [
-        \ ['jump',          'JumpToTag(0)'],
-        \ ['preview',       'JumpToTag(1)'],
-        \ ['previewwin',    'ShowInPreviewWin()'],
-        \ ['nexttag',       'GotoNextToplevelTag(1)'],
-        \ ['prevtag',       'GotoNextToplevelTag(-1)'],
-        \ ['showproto',     'ShowPrototype(0)'],
-        \ ['hidenonpublic', 'ToggleHideNonPublicTags()'],
+        \ ['jump',       'JumpToTag(0)'],
+        \ ['preview',    'JumpToTag(1)'],
+        \ ['previewwin', 'ShowInPreviewWin()'],
+        \ ['nexttag',    'GotoNextToplevelTag(1)'],
+        \ ['prevtag',    'GotoNextToplevelTag(-1)'],
+        \ ['showproto',  'ShowPrototype(0)'],
         \
         \ ['openfold',      'OpenFold()'],
         \ ['closefold',     'CloseFold()'],
@@ -973,7 +970,7 @@ function! s:CreateAutocommands() abort
             autocmd CursorMoved __Tagbar__ nested call s:ShowInPreviewWin()
         endif
 
-        autocmd WinEnter * nested call s:QuitIfOnlyWindow()
+        autocmd BufEnter * nested call s:QuitIfOnlyWindow()
         autocmd WinEnter * if bufwinnr('__Tagbar__') == -1 |
                          \     call s:ShrinkIfExpanded() |
                          \ endif
@@ -1498,7 +1495,7 @@ endfunction
 
 " s:KindheaderTag.toggleFold() {{{3
 function! s:KindheaderTag.toggleFold() abort dict
-    let fileinfo = s:known_files.getCurrent(0)
+    let fileinfo = s:known_files.getCurrent()
 
     let fileinfo.kindfolds[self.short] = !fileinfo.kindfolds[self.short]
 endfunction
@@ -1843,11 +1840,6 @@ function! s:CloseWindow() abort
         return
     endif
 
-    " Close the preview window if it was opened by us
-    if s:pwin_by_tagbar
-        pclose
-    endif
-
     let tagbarbufnr = winbufnr(tagbarwinnr)
 
     if winnr() == tagbarwinnr
@@ -1876,20 +1868,20 @@ function! s:CloseWindow() abort
         " Go to the tagbar window, close it and then come back to the original
         " window. Save a win-local variable in the original window so we can
         " jump back to it even if the window number changed.
-        call s:mark_window()
+        let w:tagbar_returnhere = 1
         call s:goto_win(tagbarwinnr)
         close
 
-        call s:goto_markedwin()
+        for window in range(1, winnr('$'))
+            call s:goto_win(window)
+            if exists('w:tagbar_returnhere')
+                unlet w:tagbar_returnhere
+                break
+            endif
+        endfor
     endif
 
     call s:ShrinkIfExpanded()
-
-    " The window sizes may have changed due to the shrinking happening after
-    " the window closing, so equalize them again.
-    if &equalalways
-        wincmd =
-    endif
 
     if s:autocommands_done && !s:statusline_in_use
         autocmd! TagbarAutoCmds
@@ -1930,21 +1922,12 @@ endfunction
 " s:ZoomWindow() {{{2
 function! s:ZoomWindow() abort
     if s:is_maximized
-        execute 'vertical resize ' . g:tagbar_width
+        execute 'vert resize ' . g:tagbar_width
         execute s:winrestcmd
         let s:is_maximized = 0
     else
         let s:winrestcmd = winrestcmd()
-        if g:tagbar_zoomwidth == 1
-            vertical resize
-        elseif g:tagbar_zoomwidth == 0
-            let func = exists('*strdisplaywidth') ? 'strdisplaywidth' : 'strlen'
-            let maxline = max(map(getline(line('w0'), line('w$')),
-                                \ func . '(v:val)'))
-            execute 'vertical resize ' . maxline
-        elseif g:tagbar_zoomwidth > 1
-            execute 'vertical resize ' . g:tagbar_zoomwidth
-        endif
+        vert resize
         let s:is_maximized = 1
     endif
 endfunction
@@ -2129,7 +2112,7 @@ function! s:ExecuteCtagsOnFile(fname, realfname, typeinfo) abort
                           \ '--excmd=pattern',
                           \ '--fields=nksSa',
                           \ '--extra=',
-                          \ '--sort=no'
+                          \ '--sort=yes'
                           \ ]
 
         " Include extra type definitions
@@ -2659,7 +2642,7 @@ endfunction
 function! s:PrintKinds(typeinfo, fileinfo) abort
     call s:LogDebugMessage('PrintKinds called')
 
-    let is_first_tag = 1
+    let first_tag = 1
 
     for kind in a:typeinfo.kinds
         let curtags = filter(copy(a:fileinfo.tags),
@@ -2675,13 +2658,53 @@ function! s:PrintKinds(typeinfo, fileinfo) abort
          \ has_key(a:typeinfo.kind2scope, kind.short)
             " Scoped tags
             for tag in curtags
-                call s:PrintTag(tag, 0, is_first_tag, a:fileinfo, a:typeinfo)
+                if g:tagbar_compact && first_tag && s:short_help
+                    silent 0put =tag.strfmt()
+                else
+                    silent  put =tag.strfmt()
+                endif
+
+                " Save the current tagbar line in the tag for easy
+                " highlighting access
+                let curline                   = line('.')
+                let tag.tline                 = curline
+                let a:fileinfo.tline[curline] = tag
+
+                " Print children
+                if tag.isFoldable() && !tag.isFolded()
+                    for ckind in a:typeinfo.kinds
+                        let childtags = filter(copy(tag.children),
+                                          \ 'v:val.fields.kind ==# ckind.short')
+                        if len(childtags) > 0
+                            " Print 'kind' header of following children, but
+                            " only if they are not scope-defining tags (since
+                            " those already have an identifier)
+                            if !has_key(a:typeinfo.kind2scope, ckind.short)
+                                let indent  = g:tagbar_indent
+                                let indent += g:tagbar_show_visibility
+                                let indent += 1 " fold symbol
+                                silent put =repeat(' ', indent) .
+                                                 \ '[' . ckind.long . ']'
+                                " Add basic tag to allow folding when on the
+                                " header line
+                                let headertag = s:BaseTag.New(ckind.long)
+                                let headertag.parent = tag
+                                let headertag.fileinfo = tag.fileinfo
+                                let a:fileinfo.tline[line('.')] = headertag
+                            endif
+                            for childtag in childtags
+                                call s:PrintTag(childtag, 1,
+                                              \ a:fileinfo, a:typeinfo)
+                            endfor
+                        endif
+                    endfor
+                endif
 
                 if !g:tagbar_compact
                     silent put _
                 endif
 
-                let is_first_tag = 0
+                let first_tag = 0
             endfor
         else
             " Non-scoped tags
@@ -2694,7 +2717,7 @@ function! s:PrintKinds(typeinfo, fileinfo) abort
             endif
 
             let padding = g:tagbar_show_visibility ? ' ' : ''
-            if g:tagbar_compact && is_first_tag && s:short_help
+            if g:tagbar_compact && first_tag && s:short_help
                 silent 0put =foldmarker . padding . kind.long
             else
                 silent  put =foldmarker . padding . kind.long
@@ -2722,28 +2745,18 @@ function! s:PrintKinds(typeinfo, fileinfo) abort
                 silent put _
             endif
 
-            let is_first_tag = 0
+            let first_tag = 0
         endif
     endfor
 endfunction
 
 " s:PrintTag() {{{2
-function! s:PrintTag(tag, depth, is_first, fileinfo, typeinfo) abort
-    if g:tagbar_hide_nonpublic &&
-     \ get(a:tag.fields, 'access', 'public') !=# 'public'
-        let a:tag.tline = -1
-        return
-    endif
-
+function! s:PrintTag(tag, depth, fileinfo, typeinfo) abort
     " Print tag indented according to depth
-    let tagstr = repeat(' ', a:depth * g:tagbar_indent) . a:tag.strfmt()
-    if a:is_first && g:tagbar_compact && s:short_help
-        silent 0put =tagstr
-    else
-        silent  put =tagstr
-    endif
+    silent put =repeat(' ', a:depth * g:tagbar_indent) . a:tag.strfmt()
 
-    " Save the current tagbar line in the tag for easy highlighting access
+    " Save the current tagbar line in the tag for easy
+    " highlighting access
     let curline                   = line('.')
     let a:tag.tline               = curline
     let a:fileinfo.tline[curline] = a:tag
@@ -2751,12 +2764,8 @@ function! s:PrintTag(tag, depth, is_first, fileinfo, typeinfo) abort
     " Recursively print children
     if a:tag.isFoldable() && !a:tag.isFolded()
         for ckind in a:typeinfo.kinds
-            let childfilter = 'v:val.fields.kind ==# ckind.short'
-            if g:tagbar_hide_nonpublic
-                let childfilter .=
-                      \ ' && get(v:val.fields, "access", "public") ==# "public"'
-            endif
-            let childtags = filter(copy(a:tag.children), childfilter)
+            let childtags = filter(copy(a:tag.children),
+                                 \ 'v:val.fields.kind ==# ckind.short')
             if len(childtags) > 0
                 " Print 'kind' header of following children, but only if they
                 " are not scope-defining tags (since those already have an
@@ -2773,7 +2782,7 @@ function! s:PrintTag(tag, depth, is_first, fileinfo, typeinfo) abort
                     let a:fileinfo.tline[line('.')] = headertag
                 endif
                 for childtag in childtags
-                    call s:PrintTag(childtag, a:depth + 1, 0,
+                    call s:PrintTag(childtag, a:depth + 1,
                                   \ a:fileinfo, a:typeinfo)
                 endfor
             endif
@@ -2797,7 +2806,6 @@ function! s:PrintHelp() abort
         silent  put ='\" ' . s:get_map_str('nexttag') . ': Go to next top-level tag'
         silent  put ='\" ' . s:get_map_str('prevtag') . ': Go to previous top-level tag'
         silent  put ='\" ' . s:get_map_str('showproto') . ': Display tag prototype'
-        silent  put ='\" ' . s:get_map_str('hidenonpublic') . ': Hide non-public tags'
         silent  put ='\"'
         silent  put ='\" ---------- Folds ----------'
         silent  put ='\" ' . s:get_map_str('openfold') . ': Open fold'
@@ -2899,7 +2907,7 @@ function! s:HighlightTag(openfolds, ...) abort
     let tagline = tag.getClosedParentTline()
 
     " Parent tag line number is invalid, better don't do anything
-    if tagline <= 0
+    if tagline == 0
         call s:goto_win(prevwinnr)
         redraw
         return
@@ -2979,20 +2987,17 @@ function! s:JumpToTag(stay_in_tagbar) abort
     normal! z.
     call cursor(taginfo.fields.line, taginfo.fields.column)
 
-    normal! zv
+    if foldclosed('.') != -1
+        .foldopen
+    endif
 
     if a:stay_in_tagbar
         call s:HighlightTag(0)
         call s:goto_win(tagbarwinnr)
         redraw
     elseif g:tagbar_autoclose || autoclose
-        " Also closes preview window
         call s:CloseWindow()
     else
-        " Close the preview window if it was opened by us
-        if s:pwin_by_tagbar
-            pclose
-        endif
         call s:HighlightTag(0)
     endif
 endfunction
@@ -3005,45 +3010,8 @@ function! s:ShowInPreviewWin() abort
         return
     endif
 
-    call s:GotoFileWindow(taginfo.fileinfo, 1)
-    call s:mark_window()
-
-    " Check whether the preview window is already open and open it if not.
-    " This has to be done before the :psearch below so the window is relative
-    " to the Tagbar window.
-    let pwin_open = 0
-    for win in range(1, winnr('$'))
-        if getwinvar(win, '&previewwindow')
-            let pwin_open = 1
-            break
-        endif
-    endfor
-
-    if !pwin_open
-        silent! execute
-            \ g:tagbar_previewwin_pos . ' pedit ' . taginfo.fileinfo.fpath
-        " Remember that the preview window was opened by Tagbar so we can
-        " safely close it by ourselves
-        let s:pwin_by_tagbar = 1
-    endif
-
-    " Use psearch instead of pedit since pedit essentially reloads the file
-    " and creates an empty undo entry. psearch has to be called from the file
-    " window, and since we only want matches in the current file we disable
-    " the 'include' option. Also start searching at the correct line number to
-    " find the correct tag in case of tags with the same name and to speed up
-    " the searching. Unfortunately the /\%l pattern doesn't seem to work with
-    " psearch.
-    let include_save = &include
-    set include=
-    silent! execute taginfo.fields.line . ',$psearch! /' . taginfo.pattern . '/'
-    let &include = include_save
-
-    call s:goto_win('P', 1)
-    normal! zv
-    normal! zz
-    call s:goto_markedwin()
-    call s:goto_tagbar(1)
+    execute g:tagbar_previewwin_pos . ' pedit +' . taginfo.fields.line . ' ' .
+          \ s:known_files.getCurrent(0).fpath
 endfunction
 
 " s:ShowPrototype() {{{2
@@ -3594,68 +3562,46 @@ function! s:GetTagInfo(linenr, ignorepseudo) abort
     return taginfo
 endfunction
 
-" s:GetFileWinnr() {{{2
-" Get the number of the window that has Tagbar's current file loaded into it,
-" or 0 if no window has loaded it. It tries the previous window first, if that
-" does not have the correct buffer loaded it will look for the first one with
-" the correct buffer in it.
-function! s:GetFileWinnr(fileinfo) abort
-    let filewinnr = 0
-    let prevwinnr = winnr("#")
-
-    if winbufnr(prevwinnr) == a:fileinfo.bufnr &&
-     \ !getwinvar(prevwinnr, '&previewwindow')
-        let filewinnr = prevwinnr
-    else
-        " Search for the first real window that has the correct buffer loaded
-        " in it. Similar to bufwinnr() but skips the previewwindow.
-        for i in range(1, winnr('$'))
-            call s:goto_win(i, 1)
-            if bufnr('%') == a:fileinfo.bufnr && !&previewwindow
-                let filewinnr = winnr()
-                break
-            endif
-        endfor
-
-        call s:goto_tagbar(1)
-    endif
-
-    return filewinnr
-endfunction
-
 " s:GotoFileWindow() {{{2
 " Try to switch to the window that has Tagbar's current file loaded in it, or
-" open the file in an existing window otherwise.
-function! s:GotoFileWindow(fileinfo, ...) abort
-    let noauto = a:0 > 0 ? a:1 : 0
+" open the file in a window otherwise.
+function! s:GotoFileWindow(fileinfo) abort
+    let tagbarwinnr = bufwinnr('__Tagbar__')
 
-    let filewinnr = s:GetFileWinnr(a:fileinfo)
+    call s:goto_win('p')
 
-    " If there is no window with the correct buffer loaded then load it
-    " into the first window that has a non-special buffer in it.
-    if filewinnr == 0
+    let filebufnr = bufnr(a:fileinfo.fpath)
+    if bufnr('%') != filebufnr || &previewwindow
+        " Search for the first real window that has the correct buffer loaded
+        " in it. Similar to bufwinnr() but skips the previewwindow.
+        let found = 0
         for i in range(1, winnr('$'))
             call s:goto_win(i, 1)
-            if &buftype == '' && !&previewwindow
-                execute 'buffer ' . a:fileinfo.bufnr
+            if bufnr('%') == filebufnr && !&previewwindow
+                let found = 1
                 break
             endif
         endfor
-    else
-        call s:goto_win(filewinnr, 1)
+
+        " If there is no window with the correct buffer loaded then load it
+        " into the first window that has a non-special buffer in it.
+        if !found
+            for i in range(1, winnr('$'))
+                call s:goto_win(i, 1)
+                if &buftype == '' && !&previewwindow
+                    execute 'buffer ' . filebufnr
+                    break
+                endif
+            endfor
+        endif
+
+        " To make ctrl-w_p work we switch between the Tagbar window and the
+        " correct window once
+        call s:goto_win(tagbarwinnr)
+        call s:goto_win('p')
     endif
 
-    " To make ctrl-w_p work we switch between the Tagbar window and the
-    " correct window once
-    call s:goto_tagbar(noauto)
-    call s:goto_win('p', noauto)
-endfunction
-
-" s:ToggleHideNonPublicTags() {{{2
-function! s:ToggleHideNonPublicTags() abort
-    let g:tagbar_hide_nonpublic = !g:tagbar_hide_nonpublic
-    call s:RenderKeepView()
-    call s:SetStatusLine('current')
+    return winnr()
 endfunction
 
 " s:IsValidFile() {{{2
@@ -3724,8 +3670,7 @@ function! s:SetStatusLine(current)
         let &l:statusline = call(g:tagbar_status_func, args)
     else
         let colour = current ? '%#StatusLine#' : '%#StatusLineNC#'
-        let hide = g:tagbar_hide_nonpublic ? '[h] ' : ''
-        let text = colour . '[' . sort . '] ' . hide . fname
+        let text = colour . '[' . sort . '] ' . fname
         let &l:statusline = text
     endif
 
@@ -3742,7 +3687,6 @@ function! s:QuitIfOnlyWindow() abort
     endif
 
     let curwinnr = winnr()
-    let prevwinnr = winnr('#')
     call s:goto_win(tagbarwinnr, 1)
 
     " Check if there is more than one window
@@ -3762,7 +3706,6 @@ function! s:QuitIfOnlyWindow() abort
         endif
     endif
 
-    call s:goto_win(prevwinnr, 1)
     call s:goto_win(curwinnr, 1)
 endfunction
 
@@ -3804,8 +3747,7 @@ endfunction
 
 " s:goto_win() {{{2
 function! s:goto_win(winnr, ...) abort
-    let cmd = type(a:winnr) == type(0) ? a:winnr . 'wincmd w'
-                                     \ : 'wincmd ' . a:winnr
+    let cmd = a:winnr == 'p' ? 'wincmd p' : a:winnr . 'wincmd w'
     let noauto = a:0 > 0 ? a:1 : 0
 
     call s:LogDebugMessage("goto_win(): " . cmd . ", " . noauto)
@@ -3815,31 +3757,6 @@ function! s:goto_win(winnr, ...) abort
     else
         execute cmd
     endif
-endfunction
-
-" s:goto_tagbar() {{{2
-function! s:goto_tagbar(...) abort
-    let noauto = a:0 > 0 ? a:1 : 0
-    call s:goto_win(bufwinnr('__Tagbar__'), noauto)
-endfunction
-
-" s:mark_window() {{{2
-" Mark window with a window-local variable so we can jump back to it even if
-" the window numbers have changed.
-function! s:mark_window() abort
-    let w:tagbar_mark = 1
-endfunction
-
-" s:goto_markedwin() {{{2
-" Go to a previously marked window and delete the mark.
-function! s:goto_markedwin() abort
-    for window in range(1, winnr('$'))
-        call s:goto_win(window)
-        if exists('w:tagbar_mark')
-            unlet w:tagbar_mark
-            break
-        endif
-    endfor
 endfunction
 
 " TagbarBalloonExpr() {{{2

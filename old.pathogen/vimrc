@@ -1,43 +1,7 @@
 "ln -s ./vimrc ~/.vimrc
 
-
-"----------------------------------------------------------
-" Setting up Vundle - the vim plugin bundler
-"----------------------------------------------------------
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-"Custom Bundles below(original repos on github):
-Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'tpope/vim-rails'
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
-endif
-"----------------------------------------------------------
-" Setting up Vundle - the vim plugin bundler end
-"----------------------------------------------------------
-
-
+"-----------------------------"autoload Pathogen
+execute pathogen#infect()
 
 
 "-----------------------------"airline
@@ -59,14 +23,13 @@ else
     set background=dark
 endif
 
-"syntax enable
+syntax enable
 colorscheme solarized
 "colorscheme jellybeans
 
 
 syntax on                   
-"filetype on
-filetype off
+filetype on
 filetype indent on
 filetype plugin on
 
@@ -107,6 +70,5 @@ map <F7> :NERDTreeToggle<CR>
 
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
-
 
 
