@@ -1,9 +1,7 @@
 "ln -s ./vimrc ~/.vimrc
 
 
-"----------------------------------------------------------
-" Setting up Vundle - the vim plugin bundler
-"----------------------------------------------------------
+"-----------------------------"Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -33,9 +31,7 @@ if iCanHazVundle == 0
   echo ""
   :BundleInstall
 endif
-"----------------------------------------------------------
-" Setting up Vundle - the vim plugin bundler end
-"----------------------------------------------------------
+"-----------------------------"Setting up Vundle - the vim plugin bundler end
 
 
 
