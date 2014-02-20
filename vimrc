@@ -14,17 +14,20 @@ endif
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+
 "Custom Bundles below(original repos on github):
+Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'tpope/vim-rails'
+Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'tpope/vim-rails'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
