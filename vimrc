@@ -17,17 +17,22 @@ call vundle#rc()
 
 "Custom Bundles below(original repos on github):
 Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
+
+Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
+                              "html tag plugin:emmet-vim
+Bundle 'mattn/emmet-vim'      
 Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
+                              "tab completion plugin:supertab
+Bundle 'ervandew/supertab'    
 Bundle 'majutsushi/tagbar'
+                              "syntax checking plugin:syntastic
+Bundle 'scrooloose/syntastic' 
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tpope/vim-rails'
+Bundle 'sunaku/vim-ruby-minitest'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -65,7 +70,7 @@ colorscheme solarized
 
 syntax on                   
 "filetype on
-filetype off
+filetype off                  "off for Vundle
 filetype indent on
 filetype plugin on
 
@@ -107,5 +112,6 @@ map <F7> :NERDTreeToggle<CR>
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 
-
+"-----------------------------"for ruby
+imap <S-CR>    <CR><CR>end<Esc>-cc
 
