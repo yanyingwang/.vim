@@ -30,9 +30,11 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
                               "syntax checking plugin:syntastic
 Bundle 'scrooloose/syntastic' 
+
+Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
-Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'tpope/vim-haml'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -40,7 +42,6 @@ if iCanHazVundle == 0
   :BundleInstall
 endif
 "-----------------------------"Setting up Vundle - the vim plugin bundler end
-
 
 
 
@@ -52,37 +53,37 @@ set noshowmode                "get rid of the default mode indicator
 let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
 
 
+
 "-----------------------------"auto save
 :set autowriteall             "save the file when you switch buffers
 :au FocusLost * :wa           "save file when focusLost
 
 
+set nu                        "Auto line num
+set hlsearch                  "Highlight Searching
+set t_Co=256
+set fileencodings=utf-8,gb18030,gbk,gb2312,big5
+set nocompatible              "be vim
+set clipboard=unnamedplus     "murge vim clipboard to system clipboard
+set mouse=a		              "enable mouse usage (all modes)
+
+syntax on
+"syntax enable
+filetype off                  "off for Vundle
+"filetype on
+filetype indent on
+filetype plugin on
+
+colorscheme solarized
+"colorscheme jellybeans
 if has('gui_running')
     set background=light
 else
     set background=dark
 endif
 
-"syntax enable
-colorscheme solarized
-"colorscheme jellybeans
-
-
-syntax on                   
-"filetype on
-filetype off                  "off for Vundle
-filetype indent on
-filetype plugin on
-
-set nu                        "Auto line num
-set hlsearch                  "Highlight Searching
-set t_Co=256
-set fileencodings=utf-8,gb18030,gbk,gb2312,big5
-set nocompatible              "vim is vim not vi
-set clipboard=unnamedplus     "murge vim clipboard to system clipboard
-set mouse=a		              "Enable mouse usage (all modes)
-
-set autoindent                "autoindent
+"-----------------------------"indent config
+set autoindent
 set expandtab
 set tabstop=4 shiftwidth=2 softtabstop=2
 au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
@@ -100,7 +101,7 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 "map <C-l> <c-w>l
 "map <C-h> <c-w>h
 
-"-----------------------------"original <c-n> move to 'tab complete'
+"-----------------------------"bn bp mapping
 map <C-l> :bn<CR> 
 map <C-h> :bp<CR> 
 "map <C-b>l :bn<CR> 
@@ -112,6 +113,7 @@ map <F7> :NERDTreeToggle<CR>
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 
-"-----------------------------"for ruby
+"-----------------------------"map for ruby
 imap <S-CR>    <CR><CR>end<Esc>-cc
+
 
