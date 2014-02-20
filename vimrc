@@ -90,10 +90,10 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 "let g:ctrlp_cmd = 'CtrlP'
 
 "-----------------------------"windows moving shortcut mapping
-map <c-j> <c-w>j             
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+"map <c-j> <c-w>j             
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
 
 "-----------------------------"original <c-n> move to 'tab complete'
 map <c-l> :bn<CR> 
