@@ -4,7 +4,7 @@
 "------------------------------------------------------------------
 "
 
-execute pathogen#infect()
+"execute pathogen#infect()
                                 "autoload Pathogen
 
 set background=light
