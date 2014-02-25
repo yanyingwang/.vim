@@ -2,81 +2,28 @@
 "------------------------------------------------------------------
 "custom added below:
 "------------------------------------------------------------------
-"
 
-"execute pathogen#infect()
-                                "autoload Pathogen
+"-------------------------------"Source a terminal configuration file if available
+if filereadable("/root/.vimrc")
+  source /root/.vimrc
+endif
+
+
+"--------------------------------"uncomment below hide toobar or menus to see more text
+set guioptions-=m                "remove menu bar
+"set guioptions-=T               "remove toolbar
+"set guioptions-=r               "remove right-hand scroll bar
 
 set background=light
 colorscheme solarized
 "colorscheme jellybeans
-                                
-
-
-set nu                           "auto line num
-set hlsearch                     "highlight searching
-set foldmethod=indent            "Code Folding
-set foldlevel=99
-set clipboard=unnamedplus        "clipboard
-set mouse=a		         "Enable mouse usage (all modes)
-"--------------------------------"uncomment below hide toobar or menus to see more text
-set guioptions-=m                "remove menu bar
-"set guioptions-=T                "remove toolbar
-"set guioptions-=r               "remove right-hand scroll bar
 set guifont=Monaco\ 9
 "set guifont=Monaco\ Bold\ 9
 "set guifont=Ubuntu\ Mono\ Bold\ 11
+                                
 
 
-syntax on                        "Syntax Highlighting and Validation
-filetype on
-"au BufNewFile,BufRead *.sh set filetype=zsh
-filetype plugin on
-filetype plugin indent on
-"set tabstop=4 expandtab shiftwidth=2 softtabstop=2
-"au FileType python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
-
-
-
-
-"--------------------------------"maps for moving within splitting windows
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-map <F8> :TagbarToggle<CR>
-map <F7> :NERDTreeToggle<CR>
-
-"-------------------------------"Task lists
-"map <leader>td <Plug>TaskList
-
-
-"-------------------------------"Revision History
-map <leader>g :GundoToggle<CR>
-
-
-
-
-
-"ln -s ./gvim /etc/vim/gvim  " " Make external commands work through a pipe instead of a pseudo-tty "set noguipty " You can also specify a different font, overriding the default font
-"if has('gui_gtk2')
-"  set guifont=\Bitstream\ Vera\ Sans\ Mono\ 12
-"else
-"  set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
-"endif " If you want to run gvim with a dark background, try using a different
-" colorscheme or running 'gvim -reverse'.
-" http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/ has examples and
-" downloads for the colorschemes on vim.org
-"
-"------------------------------------------------------------------
-"uses Vim's readfile() and writefile() functions to access the file used to save the size/position.
-"------------------------------------------------------------------
-"
-"
-" Source a global configuration file if available
-"if filereadable("/etc/vim/gvimrc.local")
-"  source /etc/vim/gvimrc.local
-"endif
+"--------------------------------"uses Vim's readfile() and writefile() functions to access the file used to save the size/position.
 
 if has("gui_running")
   function! ScreenFilename()
