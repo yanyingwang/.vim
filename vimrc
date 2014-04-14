@@ -62,7 +62,8 @@ let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as w
 set nu                        "Auto line num
 set hlsearch                  "Highlight Searching
 set t_Co=256
-set fileencodings=utf-8,gb18030,gbk,gb2312,big5
+set fileencodings=utf-8
+"set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set nocompatible              "be vim
 set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "enable mouse usage (all modes)
