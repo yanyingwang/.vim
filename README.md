@@ -1,18 +1,25 @@
 conf_vim
-=====
+==============
 
 Step 1
 --------------
 ```shell
-ln -sf /home/wyy/conf_vim /root/.vim
-ln -sf /home/wyy/conf_vim /home/wyy/.vim
-
-cat >> /etc/vim/vimrc <<EOF
-source /home/wyy/conf_vim/vimrc 
-EOF
+cd ~
+git clone https://github.com/wyying/conf_vim.git
 ```
 
 Step 2
+--------------
+```shell
+ln -sf conf_vim /root/.vim
+ln -sf conf_vim ~/.vim
+
+cat >> /etc/vim/vimrc <<EOF
+source ~/conf_vim/vimrc 
+EOF
+```
+
+Step 3
 --------------
 ```shell
 vim temp.txt
@@ -24,7 +31,7 @@ And then, type command below in the vim:
 :BundleInstall
 ```
 
-Step 3
+Step 4
 --------------
 So easy! Rock your vim, now!!!
 
