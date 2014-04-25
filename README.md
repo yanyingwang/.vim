@@ -4,8 +4,7 @@ conf_vim
 Step 1
 --------------
 ```shell
-cd ~
-git clone https://github.com/wyying/conf_vim.git
+cd ~ && git clone https://github.com/wyying/conf_vim.git
 ```
 
 Step 2
