@@ -12,7 +12,7 @@ source /home/wyy/conf_vim/vimrc
 EOF
 ```
 
-Step 1
+Step 2
 --------------
 ```shell
 vim temp.txt
@@ -24,4 +24,8 @@ And then, type command below in the vim:
 :BundleInstall
 ```
 
+Step 3
+--------------
 So easy! Rock your vim, now!!!
+
+
