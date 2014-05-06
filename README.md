@@ -27,7 +27,7 @@ vim temp.txt
 And then, type command below in the vim:
 
 ```shell
-:PluginInstall
+:PluginInstall!
 ```
 
 Step 4
