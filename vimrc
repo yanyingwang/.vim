@@ -1,7 +1,6 @@
 "ln -s ./vimrc ~/.vimrc
 
-"-----------------------------"Set up Vundle - the vim plugin bundler
-
+"-----------------------------------"Set up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -14,6 +13,7 @@ endif
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 
 "-----"Custom Bundles below(original repos on github):
 Bundle 'gmarik/vundle'
@@ -44,45 +44,32 @@ endif
 
 
 
-
-
-"-----------------------------"Vim setting
-
-:let mapleader=","            "set mapleader key
-
-set nu                        "Auto line num
+"-----------------------------------"Vim setting
+set nu
 set t_Co=256
 "set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set nocompatible              "be vim
 set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "enable mouse usage (all modes)
 
+:let mapleader=","            "set mapleader key
 
 syntax on
-"syntax enable
 filetype off                  "off for Vundle
-"filetype on
 filetype indent on
 filetype plugin on
-
-
-
 
 "-----"auto save
 ":set autowriteall             "save the file when you switch buffers
 ":au FocusLost * :wa           "save file when focusLost
 
-
-
-"-----"change background color automatically
+"-----"auto change background color
 colorscheme solarized
-"colorscheme jellybeans
 if has('gui_running')
     set background=light
 else
     set background=dark
 endif
-
 
 "-----"indent config
 set autoindent
@@ -95,14 +82,11 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 
-
-"-----------------------------"Plugin setting & shortcut mapping
-
+"-----------------------------------"setting & shortcut mapping
 "-----"vim tab switch mapping
 map <C-l> :bn<CR> 
 map <C-h> :bp<CR> 
 map <C-k> :bd<CR> 
-
 
 "-----"vim backslash serach
 "set ignorecase
@@ -110,26 +94,15 @@ set incsearch                 "interactive searching
 set hlsearch                  "highlight searching
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-
-"-----"windows moving shortcut mapping
-"map <C-j> <c-w>j             
-"map <C-k> <c-w>k
-"map <C-l> <c-w>l
-"map <C-h> <c-w>h
-
-
 "-----"VimFiler
 :let g:vimfiler_as_default_explorer = 1
 map <Leader>p :VimFiler<CR>
 
-
 "-----"Unite
 map <C-p> :Unite file<CR>
 
-
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
-
 
 "-----"airline
 set laststatus=2              "vim-airline doesn't appear until I create a new split
@@ -137,7 +110,6 @@ set ttimeoutlen=50            "There is a pause when leaving insert mode
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode                "get rid of the default mode indicator
 let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
-
 
 "-----"autocomplete ruby statement mapping
 if !exists( "*RubyEndToken" )
