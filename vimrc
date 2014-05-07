@@ -19,8 +19,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
-"-----"Vim motion on speed(search and move cursor quickly)
-Bundle 'Lokaltog/vim-easymotion'
 "-----"quickly search and open file
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
@@ -50,11 +48,9 @@ endif
 
 "-----------------------------"Vim setting
 
-:let mapleader=","           "set mapleader key
-"set showcmd
+:let mapleader=","            "set mapleader key
 
 set nu                        "Auto line num
-set hlsearch                  "Highlight Searching
 set t_Co=256
 "set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set nocompatible              "be vim
@@ -102,37 +98,17 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 "-----------------------------"Plugin setting & shortcut mapping
 
-"-----"VimFiler
-:let g:vimfiler_as_default_explorer = 1
-map <C-b>p :VimFiler<CR>
-
-
-"-----"Unite
-map <C-p> :Unite file<CR>
-
-
-"-----"vim-easymotion mapping
-"let g:EasyMotion_do_mapping = 0  "Disable default mappings
-let g:EasyMotion_smartcase = 1   "Turn on case sensitive feature
-"let g:EasyMotion_startofline = 0 "keep cursor colum when JK motion
-
-nmap <Leader>s <Plug>(easymotion-s)
-nmap <Leader>t <Plug>(easymotion-t2)
-
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-
 "-----"vim tab switch mapping
 map <C-l> :bn<CR> 
 map <C-h> :bp<CR> 
 map <C-k> :bd<CR> 
+
+
+"-----"vim backslash serach
+"set ignorecase
+set incsearch                 "interactive searching
+set hlsearch                  "highlight searching
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 
 "-----"windows moving shortcut mapping
@@ -140,6 +116,15 @@ map <C-k> :bd<CR>
 "map <C-k> <c-w>k
 "map <C-l> <c-w>l
 "map <C-h> <c-w>h
+
+
+"-----"VimFiler
+:let g:vimfiler_as_default_explorer = 1
+map <Leader>p :VimFiler<CR>
+
+
+"-----"Unite
+map <C-p> :Unite file<CR>
 
 
 "-----"tarbar
