@@ -71,7 +71,7 @@ else
     set background=dark
 endif
 
-"-----"indent config
+"-----"code indent
 set autoindent
 set expandtab
 set tabstop=4 shiftwidth=2 softtabstop=2
@@ -88,7 +88,7 @@ map <C-l> :bn<CR>
 map <C-h> :bp<CR> 
 map <C-k> :bd<CR> 
 
-"-----"vim backslash serach
+"-----"vim backslash search
 "set ignorecase
 set incsearch                 "interactive searching
 set hlsearch                  "highlight searching
