@@ -73,8 +73,8 @@ filetype plugin on
 
 
 "-----"auto save
-:set autowriteall             "save the file when you switch buffers
-:au FocusLost * :wa           "save file when focusLost
+":set autowriteall             "save the file when you switch buffers
+":au FocusLost * :wa           "save file when focusLost
 
 
 
@@ -112,12 +112,12 @@ map <C-p> :Unite file<CR>
 
 
 "-----"vim-easymotion mapping
-let g:EasyMotion_do_mapping = 0  "Disable default mappings
+"let g:EasyMotion_do_mapping = 0  "Disable default mappings
 let g:EasyMotion_smartcase = 1   "Turn on case sensitive feature
 "let g:EasyMotion_startofline = 0 "keep cursor colum when JK motion
 
-nmap s <Plug>(easymotion-s)
-nmap t <Plug>(easymotion-t2)
+nmap <Leader>s <Plug>(easymotion-s)
+nmap <Leader>t <Plug>(easymotion-t2)
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
