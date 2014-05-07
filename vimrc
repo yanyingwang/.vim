@@ -90,6 +90,7 @@ map <C-k> :bd<CR>
 
 "-----"vim backslash search
 "set ignorecase
+set nowrapscan                "do not wrap around
 set incsearch                 "interactive searching
 set hlsearch                  "highlight searching
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
