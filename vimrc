@@ -92,7 +92,7 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 "-----"vim tab switch mapping
 map <C-l> :bn<CR> 
 map <C-h> :bp<CR> 
-map <C-k> :bd<CR> 
+"map <C-k> :bd<CR> 
 
 "-----"vim backslash search
 "set ignorecase
