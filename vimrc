@@ -94,6 +94,10 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j 
 map <C-k> <C-w>k 
 map <C-l> <C-w>l 
+if has('gui_running')
+  map <C-tab> <C-w>w
+endif
+
 
 "-----"vim tab switch mapping
 map <C-n> :bn<CR> 
