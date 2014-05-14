@@ -89,10 +89,16 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 "-----------------------------------"setting & shortcut mapping
+"-----"vim move through windows
+map <C-h> <C-w>h 
+map <C-j> <C-w>j 
+map <C-k> <C-w>k 
+map <C-l> <C-w>l 
+
 "-----"vim tab switch mapping
-map <C-l> :bn<CR> 
-map <C-h> :bp<CR> 
-map <C-k> :bd<CR> 
+map <C-n> :bn<CR> 
+map <C-p> :bp<CR> 
+"map <C-k> :bd<CR> 
 
 "-----"vim backslash search
 "set ignorecase
@@ -106,7 +112,7 @@ set hlsearch                  "highlight searching
 map <Leader>p :VimFiler<CR>
 
 "-----"Unite
-map <C-p> :Unite file<CR>
+map <C-a>f :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
