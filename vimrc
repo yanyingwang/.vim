@@ -105,7 +105,7 @@ map <C-p> :bp<CR>
 "map <C-k> :bd<CR> 
 
 "-----"vim backslash search
-"set ignorecase
+set ignorecase                "/pattern/c
 set nowrapscan                "do not wrap around
 set incsearch                 "interactive searching
 set hlsearch                  "highlight searching
