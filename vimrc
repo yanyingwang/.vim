@@ -102,8 +102,6 @@ endif
 "-----"vim tab switch mapping
 map <C-n> :bn<CR> 
 map <C-p> :bp<CR> 
-map <C-a>h :bn<CR> 
-map <C-a>l :bp<CR> 
 "map <C-k> :bd<CR> 
 
 "-----"vim backslash search
