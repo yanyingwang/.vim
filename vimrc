@@ -34,6 +34,7 @@ Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
+Bundle 'plasticboy/vim-markdown'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
