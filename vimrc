@@ -90,6 +90,11 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 "-----------------------------------"setting & shortcut mapping
+"-----"vim markdown
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+
+
 "-----"vim move through windows
 map <C-h> <C-w>h 
 map <C-j> <C-w>j 
