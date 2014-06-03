@@ -36,6 +36,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'hallison/vim-ruby-sinatra'
+Bundle 'vim-scripts/SudoEdit.vim'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -91,6 +92,7 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 "-----------------------------------"setting & shortcut mapping
+
 "-----"vim markdown
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
