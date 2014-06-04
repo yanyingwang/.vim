@@ -92,6 +92,8 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 "-----------------------------------"setting & shortcut mapping
+"Force saving files that require root permission 
+cmap W! w !sudo tee > /dev/null %
 
 "-----"vim markdown
 let g:vim_markdown_folding_disabled=1
