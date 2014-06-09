@@ -1,4 +1,4 @@
-conf_vim
+config your vim from me
 ==============
 
 Step 1
