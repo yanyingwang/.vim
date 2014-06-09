@@ -4,17 +4,14 @@ conf_vim
 Step 1
 --------------
 ```shell
-cd ~ && git clone https://github.com/wyying/conf_vim.git
+cd ~ && git clone https://github.com/wyying/.vim.git
 ```
 
 Step 2
 --------------
 ```shell
-ln -sf conf_vim /root/.vim
-ln -sf conf_vim ~/.vim
-
 cat >> /etc/vim/vimrc <<EOF
-source ~/conf_vim/vimrc 
+source ~/.vim/vimrc 
 EOF
 ```
 
@@ -25,7 +22,6 @@ vim temp.txt
 ```
 
 And then, type command below in the vim:
-
 ```shell
 :PluginInstall!
 ```
