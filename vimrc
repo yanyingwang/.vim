@@ -127,7 +127,7 @@ set hlsearch                  "highlight searching
 map <Leader>p :VimFiler<CR>
 
 "-----"Unite
-map <C-a>f :Unite file<CR>
+map <C-x><C-f> :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
