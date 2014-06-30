@@ -16,6 +16,12 @@ call vundle#rc()
 
 
 "-----"Custom Bundles below(original repos on github):
+"-----"automatic closing of quotes
+"Bundle 'Raimondi/delimitMate'
+"-----"comment code block <leader>cc <leader>cu
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'bronson/vim-trailing-whitespace'
+"Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
@@ -23,12 +29,12 @@ Bundle 'bling/vim-airline'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
 "-----"html tag plugin:emmet-vim
-Bundle 'mattn/emmet-vim'      
+Bundle 'mattn/emmet-vim'
 "-----"tab completion plugin:supertab
-Bundle 'ervandew/supertab'    
+Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 "-----"syntax checking plugin:syntastic
-Bundle 'scrooloose/syntastic' 
+Bundle 'scrooloose/syntastic'
 
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'vim-ruby/vim-ruby'
@@ -92,7 +98,7 @@ au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
 
 "-----------------------------------"setting & shortcut mapping
-"Force saving files that require root permission 
+"Force saving files that require root permission
 cmap W! w !sudo tee > /dev/null %
 
 "-----"vim markdown
@@ -101,19 +107,19 @@ let g:vim_markdown_no_default_key_mappings=1
 
 
 "-----"vim move through windows
-map <C-h> <C-w>h 
-map <C-j> <C-w>j 
-map <C-k> <C-w>k 
-map <C-l> <C-w>l 
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 if has('gui_running')
   map <C-tab> <C-w>w
 endif
 
 
 "-----"vim tab switch mapping
-map <C-n> :bn<CR> 
-map <C-p> :bp<CR> 
-map <C-d> :bd<CR> 
+map <C-n> :bn<CR>
+map <C-p> :bp<CR>
+map <C-d> :bd<CR>
 
 "-----"vim backslash search
 set ignorecase                "/pattern/c
