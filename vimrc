@@ -130,7 +130,7 @@ set hlsearch                  "highlight searching
 
 "-----"VimFiler
 :let g:vimfiler_as_default_explorer = 1
-map <Leader>p :VimFiler<CR>
+map <C-x><C-o> :VimFiler<CR>
 
 "-----"Unite
 map <C-x><C-f> :Unite file<CR>
