@@ -17,7 +17,7 @@ call vundle#rc()
 
 "-----"Custom Bundles below(original repos on github):
 "-----"automatic closing of quotes
-"Bundle 'Raimondi/delimitMate'
+Bundle 'Raimondi/delimitMate'
 "-----"comment code block <leader>cc <leader>cu
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'bronson/vim-trailing-whitespace'
