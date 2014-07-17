@@ -16,6 +16,8 @@ call vundle#rc()
 
 
 "-----"Custom Bundles below(original repos on github):
+"
+Bundle 'slim-template/vim-slim'
 "-----"automatic closing of quotes
 Bundle 'Raimondi/delimitMate'
 "-----"comment code block <leader>cc <leader>cu
