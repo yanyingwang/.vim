@@ -132,10 +132,10 @@ set hlsearch                  "highlight searching
 
 "-----"VimFiler
 :let g:vimfiler_as_default_explorer = 1
-map <C-x><C-o> :VimFiler<CR>
+map <C-a><C-r> :VimFiler<CR>
 
 "-----"Unite
-map <C-x><C-f> :Unite file<CR>
+map <C-a><C-f> :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
