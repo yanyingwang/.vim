@@ -77,7 +77,11 @@ filetype plugin on
 "-----"color scheme and fonts setting
 colorscheme solarized
 if has('gui_running')
-  set guifont=Monaco\ 9
+    if has('unix')
+        set guifont=Monaco:h12
+    else
+        set guifont=Monaco\ 9
+    endif
   "set guifont=Monaco\ Bold\ 9
   set background=light
 

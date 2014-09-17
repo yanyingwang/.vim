@@ -10,9 +10,7 @@ cd ~ && git clone https://github.com/wyying/.vim.git
 Step 2
 --------------
 ```shell
-cat >> /etc/vim/vimrc <<EOF
-source ~/.vim/vimrc 
-EOF
+ln -sf ~/.vim/vimrc ~/.vimrc
 ```
 
 Step 3
