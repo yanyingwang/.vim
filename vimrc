@@ -60,8 +60,9 @@ set nu
 set t_Co=256
 "set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set nocompatible              "be vim
-set clipboard=unnamedplus     "murge vim clipboard to system clipboard
-set mouse=a		              "enable mouse usage (all modes)
+set clipboard=unnamedplus,unnamed,autoselect
+                               "murge vim clipboard to system clipboard
+set mouse=a		       "enable mouse usage (all modes)
 
 :let mapleader=","            "set mapleader key
 
@@ -123,9 +124,9 @@ endif
 
 
 "-----"vim tab switch mapping
-map <C-n> :bn<CR>
-map <C-p> :bp<CR>
-map <C-d> :bd<CR>
+map <C-a>n :bn<CR>
+map <C-a>p :bp<CR>
+map <C-a>k :bd<CR>
 
 "-----"vim backslash search
 set ignorecase                "/pattern/c
