@@ -124,9 +124,9 @@ endif
 
 
 "-----"vim tab switch mapping
-map <C-a>n :bn<CR>
-map <C-a>p :bp<CR>
-map <C-a>k :bd<CR>
+map <leader>n :bn<CR>
+map <leader>p :bp<CR>
+map <leader>k :bd<CR>
 
 "-----"vim backslash search
 set ignorecase                "/pattern/c
@@ -137,10 +137,10 @@ set hlsearch                  "highlight searching
 
 "-----"VimFiler
 :let g:vimfiler_as_default_explorer = 1
-map <C-a><C-r> :VimFiler<CR>
+map <leader>r :VimFiler<CR>
 
 "-----"Unite
-map <C-a><C-f> :Unite file<CR>
+map <leader>p :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
