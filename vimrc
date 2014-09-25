@@ -22,7 +22,7 @@ Bundle 'slim-template/vim-slim'
 Bundle 'Raimondi/delimitMate'
 "-----"comment code block <leader>cc <leader>cu
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'bronson/vim-trailing-whitespace'
+"Bundle 'bronson/vim-trailing-whitespace'
 "Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
@@ -140,7 +140,7 @@ set hlsearch                  "highlight searching
 map <leader>r :VimFiler<CR>
 
 "-----"Unite
-map <leader>p :Unite file<CR>
+map <leader>f :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
