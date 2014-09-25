@@ -124,8 +124,8 @@ endif
 
 
 "-----"vim tab switch mapping
-map <leader>n :bn<CR>
-map <leader>p :bp<CR>
+map <leader>l :bn<CR>
+map <leader>h :bp<CR>
 map <leader>k :bd<CR>
 
 "-----"vim backslash search
@@ -140,7 +140,7 @@ set hlsearch                  "highlight searching
 map <leader>r :VimFiler<CR>
 
 "-----"Unite
-map <leader>f :Unite file<CR>
+map <leader>j :Unite file<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
