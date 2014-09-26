@@ -71,7 +71,7 @@ filetype off                  "off for Vundle
 filetype indent on
 filetype plugin on
 
-set autochdir
+"set autochdir
 " CDC = Change to Directory of Current file
 command CDC cd %:p:h
 
