@@ -71,6 +71,10 @@ filetype off                  "off for Vundle
 filetype indent on
 filetype plugin on
 
+set autochdir
+" CDC = Change to Directory of Current file
+command CDC cd %:p:h
+
 "-----"auto save
 ":set autowriteall             "save the file when you switch buffers
 ":au FocusLost * :wa           "save file when focusLost
