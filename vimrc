@@ -147,11 +147,11 @@ nnoremap <leader>r :VimFilerExplorer<CR>
 
 "-----"Unite
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>h :bn<CR>
-nnoremap <leader>l :bp<CR>
+nnoremap <leader>l :bn<CR>
+nnoremap <leader>h :bp<CR>
+nnoremap <leader>k :bd<CR>
 nnoremap <leader>j :Unite file<CR>
 nnoremap <leader>m :Unite -start-insert file_rec/async:!<CR>
-nnoremap <leader>k :bd<CR>
 "map <leader>b :Unite file buffer<CR>
 nnoremap <leader>b :Unite buffer bookmark<CR>
 
