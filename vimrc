@@ -17,7 +17,6 @@ call vundle#rc()
 
 "-----"Custom Bundles below(original repos on github):
 "
-Bundle 'chase/vim-ansible-yaml'
 Bundle 'slim-template/vim-slim'
 "-----"automatic closing of quotes
 Bundle 'Raimondi/delimitMate'
