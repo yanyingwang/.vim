@@ -37,7 +37,7 @@ Bundle 'bling/vim-airline'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/neocomplete.vim'
+"Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/vimshell.vim'
 "-----"html tag plugin:emmet-vim
 Bundle 'mattn/emmet-vim'
@@ -131,10 +131,7 @@ let g:vim_markdown_no_default_key_mappings=1
 
 
 "-----"buffer switch mapping
-map <C-l> :bn<CR>
-map <C-h> :bp<CR>
-map <C-k> :bd<CR>
-map <leader>k :bd<CR>
+"map <C-k> :bd<CR>
 
 "-----"vim backslash search
 set ignorecase                "/pattern/c
@@ -145,15 +142,18 @@ set hlsearch                  "highlight searching
 
 "-----"VimFiler
 :let g:vimfiler_as_default_explorer = 1
-map <leader>f :VimFiler<CR>
-map <leader>r :VimFilerExplorer<CR>
+nnoremap <leader>f :VimFiler<CR>
+nnoremap <leader>r :VimFilerExplorer<CR>
 
 "-----"Unite
 let g:unite_source_history_yank_enable = 1
-map <leader>j :Unite file<CR>
-map <leader>m :Unite -start-insert file_rec/async:!<CR>
+nnoremap <leader>h :bn<CR>
+nnoremap <leader>l :bp<CR>
+nnoremap <leader>j :Unite file<CR>
+nnoremap <leader>m :Unite -start-insert file_rec/async:!<CR>
+nnoremap <leader>k :bd<CR>
 "map <leader>b :Unite file buffer<CR>
-map <leader>b :Unite buffer bookmark<CR>
+nnoremap <leader>b :Unite buffer bookmark<CR>
 
 "-----"tarbar
 map <F8> :TagbarToggle<CR>
