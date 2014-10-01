@@ -1,69 +1,74 @@
-"ln -s ./vimrc ~/.vimrc
+"NeoBundle-----------------------------------
+if !1 | finish | endif                  "Skip initialization for vim-tiny or vim-small.
 
-"-----------------------------------"Set up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+if has('vim_starting')
+  set nocompatible                      "Be iMproved
+
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :PluginInstall!
+let g:make = 'gmake'
+if system('uname -o') =~ '^GNU/'
+  let g:make = 'make'
 endif
 
+NeoBundleFetch 'Shougo/neobundle.vim'   "Let NeoBundle manage NeoBundle
 
-"-----"Custom Bundles below(original repos on github):
-"
-Bundle 'slim-template/vim-slim'
-"-----"automatic closing of quotes
-Bundle 'Raimondi/delimitMate'
-"-----"comment code block <leader>cc <leader>cu
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'bronson/vim-trailing-whitespace'
-"Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-"-----"quickly search and open file
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler.vim'
-Bundle 'Shougo/vimproc.vim'
-"Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/vimshell.vim'
-"-----"html tag plugin:emmet-vim
-Bundle 'mattn/emmet-vim'
-"-----"tab completion plugin:supertab
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-"-----"syntax checking plugin:syntastic
-Bundle 'scrooloose/syntastic'
+"Bundleplugins----------
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'Raimondi/delimitMate'        "automatic closing of quotes
+NeoBundle 'scrooloose/nerdcommenter'    "comment code block <leader>cc <leader>cu
+"NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'kien/rainbow_parentheses.vim'
+"NeoBundle 'gmarik/vundle'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+"NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'mattn/emmet-vim'             "html tag
+NeoBundle 'ervandew/supertab'           "tab completion
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'scrooloose/syntastic'        "syntax checking
+NeoBundle 'sunaku/vim-ruby-minitest'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'hallison/vim-ruby-sinatra'
+NeoBundle 'vim-scripts/SudoEdit.vim'
+NeoBundle 'tpope/vim-endwise'
+"End BundlePlugins----------
 
-Bundle 'sunaku/vim-ruby-minitest'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'hallison/vim-ruby-sinatra'
-Bundle 'vim-scripts/SudoEdit.vim'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck                          "prompt uninstalled plugin on startup
+"End NeoBundle-----------------------------------
 
 
-"-----------------------------------"Vim setting
+
+"VimSetting-----------------------------------
 set nu
 set t_Co=256
 "set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set nocompatible              "be vim
-set clipboard=unnamedplus,unnamed,autoselect
-                               "murge vim clipboard to system clipboard
-set mouse=a		       "enable mouse usage (all modes)
+set clipboard=unnamedplus     "murge vim clipboard to system clipboard
+set mouse=a		              "enable mouse usage (all modes)
 set hidden
 
 :let mapleader=","            "set mapleader key
@@ -73,49 +78,58 @@ filetype off                  "off for Vundle
 filetype indent on
 filetype plugin on
 
-"set autochdir
-" CDC = Change to Directory of Current file
+"autochdir----
+"CDC = Change to Directory of Current file
 "command CDC cd %:p:h
 
-"-----"auto save
+"auto save----
 ":set autowriteall             "save the file when you switch buffers
 ":au FocusLost * :wa           "save file when focusLost
 
-"-----"color scheme and fonts setting
+"color scheme and fonts----
 colorscheme solarized
 if has('gui_running')
   "set guifont=Monaco\ 9
   set guifont=Monaco\ Bold\ 9
   set background=light
-  set guioptions-=m                "remove menu bar
-  "set guioptions-=T               "remove toolbar
-  "set guioptions-=r               "remove right-hand scroll bar
+  "set guioptions-=m            "remove menu bar
+  set guioptions-=T           "remove toolbar
+  set guioptions-=r           "remove right-hand scroll bar
 else
   set background=dark
 endif
 
-"-----"code indent
+"code indent----
 set autoindent
 set expandtab
-"set tabstop=8 shiftwidth=4 softtabstop=4
 set tabstop=4 shiftwidth=2 softtabstop=2
+"set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType sh set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
 
+"vim backslash search----
+set ignorecase                 "/pattern/c
+set nowrapscan                 "do not wrap around
+set incsearch                  "interactive searching
+set hlsearch                   "highlight searching
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+"auto reload vimrc----
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+"VimSetting-----------------------------------
 
 
 
-"-----------------------------------"setting & shortcut mapping
-"Force saving files that require root permission
+
+"Shortcut-----------------------------------
+"Force saving files that require root permission----
 cmap W! w !sudo tee > /dev/null %
 
-"-----"vim markdown
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_no_default_key_mappings=1
-
-
-"-----"vim move through windows
+"vim move through windows----
 "map <C-h> <C-w>h
 "map <C-j> <C-w>j
 "map <C-k> <C-w>k
@@ -124,66 +138,148 @@ let g:vim_markdown_no_default_key_mappings=1
 "  map <C-tab> <C-w>w
 "endif
 
-
-"-----"buffer switch mapping
+"buffer switch mapping----
 "map <C-k> :bd<CR>
-
-"-----"vim backslash search
-set ignorecase                "/pattern/c
-set nowrapscan                "do not wrap around
-set incsearch                 "interactive searching
-set hlsearch                  "highlight searching
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-"-----"VimFiler
-:let g:vimfiler_as_default_explorer = 1
-nnoremap <leader>f :VimFiler<CR>
-nnoremap <leader>r :VimFilerExplorer<CR>
-
-"-----"Unite
-let g:unite_source_history_yank_enable = 1
 nnoremap <leader>l :bn<CR>
 nnoremap <leader>h :bp<CR>
 nnoremap <leader>k :bd<CR>
-nnoremap <leader>j :Unite file<CR>
-nnoremap <leader>m :Unite -start-insert file_rec/async:!<CR>
-"map <leader>b :Unite file buffer<CR>
-nnoremap <leader>b :Unite buffer bookmark<CR>
 
-"-----"tarbar
+
+"PluginSetting-----------------------------------
+"vim-markdown----
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+
+"VimFiler----
+:let g:vimfiler_as_default_explorer = 1
+"nnoremap <leader>f :VimFiler<CR>
+"nnoremap <leader>r :VimFilerExplorer<CR>
+
+"Unite--------
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>j :<C-u>Unite file<CR>
+nnoremap <leader>k :<C-u>UniteClose<CR>
+nnoremap <leader>m :<C-u>Unite -start-insert file_rec/async:!<CR>
+"nnoremap <leader>b :<C-u>Unite file buffer<CR>
+"nnoremap <leader>b :<C-u>Unite buffer bookmark<CR>
+nnoremap <leader>b :<C-u>Unite -quick-match buffer<CR>
+nnoremap <leader>/ :<C-u>Unite grep:.<CR>
+nnoremap <leader>y :<C-u>Unite history/yank<CR>
+"Unite prefix key----
+nnoremap [unite] <Nop>
+nmap f [unite]
+nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir
+      \ -buffer-name=files buffer bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir
+      \ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite
+      \ -buffer-name=register register<CR>
+nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]f
+      \ :<C-u>Unite -buffer-name=resume resume<CR>
+nnoremap <silent> [unite]ma
+      \ :<C-u>Unite mapping<CR>
+nnoremap <silent> [unite]me
+      \ :<C-u>Unite output:message<CR>
+nnoremap  [unite]f  :<C-u>Unite source<CR>
+
+nnoremap <silent> [unite]s
+      \ :<C-u>Unite -buffer-name=files -no-split
+      \ jump_point file_point buffer_tab
+      \ file_rec:! file file/new<CR>
+
+" Start insert.
+"call unite#custom#profile('default', 'context', {
+"\   'start_insert': 1
+"\ })
+
+" Like ctrlp.vim settings.
+"call unite#custom#profile('default', 'context', {
+"\   'start_insert': 1,
+"\   'winheight': 10,
+"\   'direction': 'botright',
+"\ })
+
+" Prompt choices.
+"call unite#custom#profile('default', 'context', {
+"\   'prompt': '» ',
+"\ })
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  " Overwrite settings.
+
+  imap <buffer> jj      <Plug>(unite_insert_leave)
+  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+
+  imap <buffer><expr> j unite#smart_map('j', '')
+  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  imap <buffer> '     <Plug>(unite_quick_match_default_action)
+  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+  imap <buffer><expr> x
+        \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+  nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+  nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+  nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  nnoremap <silent><buffer><expr> l
+        \ unite#smart_map('l', unite#do_action('default'))
+
+  let unite = unite#get_current_unite()
+  if unite.profile_name ==# 'search'
+    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+  else
+    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+  endif
+
+  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+  nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
+        \ empty(unite#mappings#get_current_filters()) ?
+        \ ['sorter_reverse'] : [])
+
+  " Runs "split" action by <C-s>.
+  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+endfunction"}}}
+
+if executable('jvgrep')
+  " For jvgrep.
+  let g:unite_source_grep_command = 'jvgrep'
+  let g:unite_source_grep_default_opts = '-i --exclude ''\.(git|svn|hg|bzr)'''
+  let g:unite_source_grep_recursive_opt = '-R'
+endif
+
+" For ack.
+if executable('ack-grep')
+  " let g:unite_source_grep_command = 'ack-grep'
+  " let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
+  " let g:unite_source_grep_recursive_opt = ''
+endif
+
+
+
+"tarbar----
 map <F8> :TagbarToggle<CR>
 
-"-----"airline
-set laststatus=2              "vim-airline doesn't appear until I create a new split
-set ttimeoutlen=50            "There is a pause when leaving insert mode
+"airline----
+set laststatus=2               "vim-airline doesn't appear until I create a new split
+set ttimeoutlen=50             "There is a pause when leaving insert mode
 let g:airline#extensions#tabline#enabled = 1
-set noshowmode                "get rid of the default mode indicator
-let g:bufferline_echo = 0     "vim-bufferline is printing to the statusline as well as the command bar
+let g:airline#extensions#hunks#enabled=0
+set noshowmode                 "get rid of the default mode indicator
+let g:bufferline_echo = 0      "vim-bufferline is printing to the statusline as well as the command bar
+"End PluginSetting-----------------------------------
 
 
-"-----"autocomplete ruby statement mapping
-"if !exists( "*RubyEndToken" )
-  "function RubyEndToken()
-    "let current_line = getline( '.' )
-    "let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
-    "let stuff_without_do = '^\s*\(class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def\)'
-      "let with_do = 'do\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
-"
-      "if match(current_line, braces_at_end) >= 0
-        "return "\<CR>}\<C-O>O"
-      "elseif match(current_line, stuff_without_do) >= 0
-        "return "\<CR>end\<C-O>O"
-      "elseif match(current_line, with_do) >= 0
-        "return "\<CR>end\<C-O>O"
-      "else
-        "return "\<CR>"
-      "endif
-    "endfunction
-"endif
-"imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
 
 
-"------"uses Vim's readfile() and writefile() functions to access the file used to save the size/position.
+"Other------------------------------------
+"save windows size of gvim----
+"uses Vim's readfile() and writefile() functions to access the file used to save the size/position.
 if has("gui_running")
   function! ScreenFilename()
     if has('amiga')
@@ -196,9 +292,9 @@ if has("gui_running")
   endfunction
 
   function! ScreenRestore()
-    " Restore window size (columns and lines) and position
-    " from values stored in vimsize file.
-    " Must set font first so columns and lines are based on font size.
+    "Restore window size (columns and lines) and position
+    "from values stored in vimsize file.
+    "Must set font first so columns and lines are based on font size.
     let f = ScreenFilename()
     if has("gui_running") && g:screen_size_restore_pos && filereadable(f)
       let vim_instance = (g:screen_size_by_vim_instance==1?(v:servername):'GVIM')
@@ -242,3 +338,4 @@ if has("gui_running")
   autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | endif
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
+"End Other------------------------------------
