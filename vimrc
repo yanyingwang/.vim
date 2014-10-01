@@ -84,14 +84,9 @@ filetype plugin on
 "-----"color scheme and fonts setting
 colorscheme solarized
 if has('gui_running')
-    if has('unix')
-        set guifont=Monaco:h12
-    else
-        set guifont=Monaco\ 9
-    endif
-  "set guifont=Monaco\ Bold\ 9
+  "set guifont=Monaco\ 9
+  set guifont=Monaco\ Bold\ 9
   set background=light
-
   set guioptions-=m                "remove menu bar
   "set guioptions-=T               "remove toolbar
   "set guioptions-=r               "remove right-hand scroll bar
