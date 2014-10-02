@@ -5,13 +5,12 @@ Step 1
 --------------
 ```shell
 aptitude install -y exuberant-ctags
-cd ~ && git clone https://github.com/wyying/.vim.git
 ```
 
 Step 2
 --------------
 ```shell
-ln -sf ~/.vim/vimrc ~/.vimrc
+cd ~ && git clone https://github.com/wyying/.vim.git
 ```
 
 Step 3
@@ -20,10 +19,13 @@ Step 3
 vim temp.txt
 ```
 
-And then, type command below in the vim:
+If nothing happen, type command below in the vim:
 ```shell
-:PluginInstall!
+:NeoBundleInstall!
 ```
+* NeoBundleList - list configured bundles
+* NeoBundleInstall(!) - install (update) bundles
+* NeoBundleClean(!) - confirm (or auto-approve) removal of unused bundles
 
 Step 4
 --------------
