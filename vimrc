@@ -1,6 +1,16 @@
 "NeoBundle-----------------------------------
 if !1 | finish | endif                  "Skip initialization for vim-tiny or vim-small.
 
+"auto clone neobundle for the first time
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+  echo "Installing Neobundle.vim ......"
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+endif
+
+
 if has('vim_starting')
   set nocompatible                      "Be iMproved
 
