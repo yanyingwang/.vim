@@ -4,6 +4,7 @@ Config your vim from mine:
 Step 1
 --------------
 ```shell
+aptitude install -y exuberant-ctags
 cd ~ && git clone https://github.com/wyying/.vim.git
 ```
 
