@@ -81,7 +81,7 @@ filetype plugin on
 
 "chdir----
 "CDC = Change to Directory of Current file
-cmap CDC cd %:p:h
+:command CDC cd %:p:h
 
 "auto save----
 ":set autowriteall             "save the file when you switch buffers
@@ -129,6 +129,7 @@ augroup END
 "Shortcut-----------------------------------
 "Force saving files that require root permission----
 cmap W! w !sudo tee > /dev/null %
+"":command W! w !sudo tee > /dev/null %
 
 "buffer switch mapping----
 "map <C-k> :bd<CR>
@@ -158,8 +159,8 @@ let g:vim_markdown_no_default_key_mappings=1
 "nnoremap <leader>r :VimFilerExplorer<CR>
 
 "vimproc----
-cmap VPB VimProcBang
-cmap VPR VimProcRead
+:command VPB VimProcBang
+:command VPR VimProcRead
 
 
 "unite-outline--------
