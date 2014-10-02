@@ -39,10 +39,10 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-NeoBundle 'mattn/emmet-vim'             "auto complete html tag
-NeoBundle 'ervandew/supertab'           "tab completion
+NeoBundle 'mattn/emmet-vim'   "auto complete html tag
+NeoBundle 'ervandew/supertab' "tab completion
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/syntastic'        "syntax checking
+NeoBundle 'scrooloose/syntastic' "syntax checking
 NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
@@ -58,7 +58,7 @@ call neobundle#end()
 
 filetype plugin indent on
 
-NeoBundleCheck                          "prompt uninstalled plugin on startup
+NeoBundleCheck                "prompt uninstalled plugin on startup
 "End NeoBundle-----------------------------------
 
 
