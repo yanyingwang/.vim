@@ -27,6 +27,11 @@ If nothing happen, type command below in the vim:
 * NeoBundleInstall(!) - install (update) bundles
 * NeoBundleClean(!) - confirm (or auto-approve) removal of unused bundles
 
+After install Unite.vim:
+* Unite neobundle/search - list configured bundles
+* Unite neoBundle/install - install bundles
+* Unite neoBundle/update - update bundles
+* Unite neoBundle/clean(!) - confirm (or auto-approve) removal of unused bundles
 Step 4
 --------------
 So easy! Rock your vim, now!!!
