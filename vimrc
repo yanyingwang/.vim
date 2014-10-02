@@ -81,7 +81,7 @@ filetype plugin on
 
 "chdir----
 "CDC = Change to Directory of Current file
-command CDC cd %:p:h
+cmap CDC cd %:p:h
 
 "auto save----
 ":set autowriteall             "save the file when you switch buffers
@@ -152,16 +152,23 @@ let g:bufferline_echo = 0      "vim-bufferline is printing to the statusline as 
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 
-"VimFiler----
+"vimfiler----
 :let g:vimfiler_as_default_explorer = 1
 "nnoremap <leader>f :VimFiler<CR>
 "nnoremap <leader>r :VimFilerExplorer<CR>
 
-"Unite--------
+"vimproc----
+cmap VPB VimProcBang
+cmap VPR VimProcRead
+
+
+"unite-outline--------
+nnoremap <leader>o :<C-u>Unite outline<CR>
+
+"unite--------
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>j :<C-u>Unite file<CR>
 nnoremap <leader>c :<C-u>UniteClose<CR>
-nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 "nnoremap <leader>b :<C-u>Unite file buffer<CR>
 "nnoremap <leader>b :<C-u>Unite buffer bookmark<CR>
