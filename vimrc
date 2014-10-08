@@ -179,7 +179,7 @@ nnoremap <leader>o :<C-u>Unite outline<CR>
 "unite--------
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>f :<C-u>Unite file<CR>
-nnoremap <leader>c :<C-u>UniteClose<CR>
+nnoremap <leader>q :<C-u>UniteClose<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 "nnoremap <leader>b :<C-u>Unite file buffer<CR>
 "nnoremap <leader>b :<C-u>Unite buffer bookmark<CR>
