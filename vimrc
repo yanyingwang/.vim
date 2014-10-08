@@ -191,8 +191,8 @@ nnoremap [unite] <Nop>
 nmap f [unite]
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir
       \ -buffer-name=files buffer bookmark file<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir
-      \ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir<CR>
+""      \ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
 "nnoremap <silent> [unite]r  :<C-u>Unite
 "      \ -buffer-name=register register<CR>
 "nnoremap <silent> [unite]f
