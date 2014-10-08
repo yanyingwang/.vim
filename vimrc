@@ -180,7 +180,7 @@ nnoremap <leader>o :<C-u>Unite outline<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>j :<C-u>Unite file<CR>
 nnoremap <leader>c :<C-u>UniteClose<CR>
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <leader>m :<C-u>Unite -start-insert file_rec/async:!<CR>
 "nnoremap <leader>b :<C-u>Unite file buffer<CR>
 "nnoremap <leader>b :<C-u>Unite buffer bookmark<CR>
 nnoremap <leader>b :<C-u>Unite -quick-match buffer<CR>
