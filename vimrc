@@ -183,7 +183,8 @@ nnoremap <leader>q :<C-u>UniteClose<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 "nnoremap <leader>b :<C-u>Unite file buffer<CR>
 "nnoremap <leader>b :<C-u>Unite buffer bookmark<CR>
-nnoremap <leader>b :<C-u>Unite -quick-match buffer<CR>
+nnoremap <leader>b :<C-u>Unite buffer<CR> 
+"-quick-match buffer<CR>
 nnoremap <leader>/ :<C-u>Unite grep:.<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 "Unite prefix key----
