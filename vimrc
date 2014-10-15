@@ -61,6 +61,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'hallison/vim-ruby-sinatra'
 NeoBundle 'vim-scripts/SudoEdit.vim'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'kchmck/vim-coffee-script'
 "End BundlePlugins----------
 
 
