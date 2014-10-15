@@ -147,6 +147,10 @@ nnoremap <leader>l :bn<CR>
 nnoremap <leader>h :bp<CR>
 nnoremap <leader>k :bd<CR>
 
+"tab switch mapping----
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+"nnoremap <C-n> :tab new<CR>
 
 "PluginSetting-----------------------------------
 "tarbar----
@@ -175,6 +179,7 @@ let g:vim_markdown_no_default_key_mappings=1
 
 "unite-outline--------
 nnoremap <leader>o :<C-u>Unite outline<CR>
+
 
 "unite--------
 let g:unite_source_history_yank_enable = 1
