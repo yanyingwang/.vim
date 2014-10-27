@@ -62,6 +62,7 @@ NeoBundle 'hallison/vim-ruby-sinatra'
 NeoBundle 'vim-scripts/SudoEdit.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-fugitive'
 "End BundlePlugins----------
 
 
