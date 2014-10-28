@@ -102,8 +102,9 @@ filetype plugin on
 "color scheme and fonts----
 colorscheme solarized
 if has('gui_running')
-  set guifont=Monaco\ 9
+  "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
+  set guifont=Ubuntu\ Mono\ Bold\ 11
   set background=light
   "set guioptions-=m            "remove menu bar
   set guioptions-=T           "remove toolbar
