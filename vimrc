@@ -198,7 +198,7 @@ nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
 
 nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -start-insert
-      \ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
+      \ -buffer-name=files -prompt=%\  buffer file<CR>
 
 nnoremap <silent> [unite]/ :<C-u>Unite grep:./
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
