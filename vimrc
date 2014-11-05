@@ -182,13 +182,9 @@ let g:vim_markdown_no_default_key_mappings=1
 :command VPR VimProcRead
 
 
-"unite-outline--------
-nnoremap <leader>o :<C-u>Unite outline<CR>
-
-
 "unite--------
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :<C-u>Unite file<CR>
+"nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>/ :<C-u>Unite grep<CR>
 
 "Unite prefix key----
