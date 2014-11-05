@@ -189,7 +189,7 @@ nnoremap <leader>o :<C-u>Unite outline<CR>
 "unite--------
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>f :<C-u>Unite file<CR>
-nnoremap <leader>/ :<C-u>Unite grep
+nnoremap <leader>/ :<C-u>Unite grep<CR>
 
 "Unite prefix key----
 nnoremap [unite] <Nop>
