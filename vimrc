@@ -150,7 +150,7 @@ nnoremap [buffer] <Nop>
 nmap b [buffer]
 nnoremap <silent> [buffer]l :bn<CR>
 nnoremap <silent> [buffer]h :bp<CR>
-nnoremap <silent> [buffer]k :bd<CR>
+nnoremap <silent> [buffer]d :bd<CR>
 
 "tab switch mapping----
 nnoremap <C-h> :tabp<CR>
