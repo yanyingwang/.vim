@@ -188,24 +188,20 @@ nnoremap <leader>o :<C-u>Unite outline<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>/ :<C-u>Unite grep:./
+
 "Unite prefix key----
 nnoremap [unite] <Nop>
 nmap f [unite]
+
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
 nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
-nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
-nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir
-      \ -buffer-name=files file<CR>
-"nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir
-      ""\ -buffer-name=files buffer bookmark file<CR>
 
-nnoremap <silent> [unite]b :<C-u>Unite buffer -start-insert -quick-match buffer<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -start-insert
+      \ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
+
 nnoremap <silent> [unite]/ :<C-u>Unite grep:./
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
-"nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -start-insert
-      ""\ -buffer-name=files -prompt=%\  buffer<CR>
-"nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -start-insert
-      "\ -buffer-name=files -prompt=%\  buffer bookmark file<CR>
 
 "nnoremap <silent> [unite]r  :<C-u>Unite
 "      \ -buffer-name=register register<CR>
