@@ -10,7 +10,7 @@ aptitude install -y exuberant-ctags
 Step 2
 --------------
 ```shell
-cd ~ && git clone https://github.com/wyying/.vim.git
+cd ~ && git clone https://github.com/yanyingwang/.vim.git
 ```
 
 Step 3
@@ -32,6 +32,7 @@ After install Unite.vim:
 * Unite neoBundle/install - install bundles
 * Unite neoBundle/update - update bundles
 * Unite neoBundle/clean(!) - confirm (or auto-approve) removal of unused bundles
+
 Step 4
 --------------
 So easy! Rock your vim, now!!!
