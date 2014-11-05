@@ -144,11 +144,13 @@ augroup END
 cmap W! w !sudo tee > /dev/null %
 "":command W! w !sudo tee > /dev/null %
 
-"buffer switch mapping----
-"map <C-k> :bd<CR>
-nnoremap <leader>l :bn<CR>
-nnoremap <leader>h :bp<CR>
-nnoremap <leader>k :bd<CR>
+"Buffer switch mapping----
+"Buffer prefix key----
+nnoremap [buffer] <Nop>
+nmap b [buffer]
+nnoremap <silent> [buffer]l :bn<CR>
+nnoremap <silent> [buffer]h :bp<CR>
+nnoremap <silent> [buffer]k :bd<CR>
 
 "tab switch mapping----
 nnoremap <C-h> :tabp<CR>
