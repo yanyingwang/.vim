@@ -137,8 +137,6 @@ augroup END
 "VimSetting-----------------------------------
 
 
-
-
 "Shortcut-----------------------------------
 "Force saving files that require root permission----
 cmap W! w !sudo tee > /dev/null %
@@ -146,17 +144,18 @@ cmap W! w !sudo tee > /dev/null %
 
 "Buffer switch mapping----
 "Buffer prefix key----
-"nnoremap [buffer] <Nop>
-"nmap b [buffer]
-"nnoremap <silent> <leader>l :bn<CR>
-"nnoremap <silent> <leader>h :bp<CR>
-"nnoremap <silent> <leader>d :bd<CR>
+nnoremap [buffer] <Nop>
+nmap z [buffer]
+nnoremap <silent> [buffer]l :bn<CR>
+nnoremap <silent> [buffer]h :bp<CR>
+nnoremap <silent> [buffer]d :bd<CR>
 
-
-"tab switch mapping----
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-"nnoremap <C-n> :tab new<CR>
+"Tab switch mapping----
+"Tab prefix key----
+nnoremap [tab] <Nop>
+nmap t [tab]
+nnoremap <silent> [tab]l :tabn<CR>
+nnoremap <silent> [tab]h :tabp<CR>
 
 "PluginSetting-----------------------------------
 "tarbar----
@@ -191,10 +190,6 @@ nnoremap <leader>/ :<C-u>Unite grep<CR>
 "Unite prefix key----
 nnoremap [unite] <Nop>
 nmap f [unite]
-
-nnoremap <silent> <unite>l :bn<CR>
-nnoremap <silent> <unite>h :bp<CR>
-nnoremap <silent> <unite>d :bd<CR>
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
 nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
