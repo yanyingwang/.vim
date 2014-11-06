@@ -148,6 +148,10 @@ cmap W! w !sudo tee > /dev/null %
 "Buffer prefix key----
 "nnoremap [buffer] <Nop>
 "nmap b [buffer]
+nnoremap <silent> <leader>l :bn<CR>
+nnoremap <silent> <leader>h :bp<CR>
+nnoremap <silent> <leader>d :bd<CR>
+
 
 "tab switch mapping----
 nnoremap <C-h> :tabp<CR>
@@ -188,10 +192,6 @@ nnoremap <leader>/ :<C-u>Unite grep<CR>
 nnoremap [unite] <Nop>
 nmap f [unite]
 
-
-nnoremap <silent> [unite]l :bn<CR>
-nnoremap <silent> [unite]h :bp<CR>
-nnoremap <silent> [unite]d :bd<CR>
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
 nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
