@@ -199,7 +199,7 @@ nnoremap <silent> [unite]t :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
-nnoremap <silent> [unite]g :<C-u>Unite grep:./<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep:.<CR>
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 
 "nnoremap <silent> [unite]r  :<C-u>Unite
