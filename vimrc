@@ -273,7 +273,11 @@ function! s:unite_my_settings()"{{{
         \ ['sorter_reverse'] : [])
 
   " Runs "split" action by <C-s>.
-  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-t>     unite#do_action('tabopen')
+  nnoremap <silent><buffer><expr> <ESC>     UniteClose 
+  nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction"}}}
 
 if executable('jvgrep')
