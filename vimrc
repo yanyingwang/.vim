@@ -276,8 +276,8 @@ function! s:unite_my_settings()"{{{
   nnoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> <C-t>     unite#do_action('tabopen')
-  nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction"}}}
+  "nmap <buffer> <ESC> <Plug>(unite_exit)
   "nnoremap <silent><buffer><expr> <ESC>     UniteClose 
 
 if executable('jvgrep')
