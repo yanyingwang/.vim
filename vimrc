@@ -192,7 +192,7 @@ nnoremap [unite] <Nop>
 nmap f [unite]
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
-nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
+"nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]t :<C-u>Unite buffer_tab<CR>
 
@@ -276,9 +276,9 @@ function! s:unite_my_settings()"{{{
   nnoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> <C-t>     unite#do_action('tabopen')
-  nnoremap <silent><buffer><expr> <ESC>     UniteClose 
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction"}}}
+  "nnoremap <silent><buffer><expr> <ESC>     UniteClose 
 
 if executable('jvgrep')
   " For jvgrep.
