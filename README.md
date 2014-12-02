@@ -1,10 +1,13 @@
 Config your vim from mine:
 ==============
 
+
+Note: this document is validated on Ubuntu(trusty).
+
 Step 1
 --------------
 ```shell
-aptitude install -y exuberant-ctags
+sudo aptitude install -y exuberant-ctags
 ```
 
 Step 2
@@ -16,7 +19,7 @@ cd ~ && git clone https://github.com/yanyingwang/.vim.git
 Step 3
 --------------
 ```shell
-vim temp.txt
+vim
 ```
 
 If nothing happen, type command below in the vim:
