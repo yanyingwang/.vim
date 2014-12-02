@@ -192,11 +192,11 @@ nnoremap [unite] <Nop>
 nmap f [unite]
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
-"nnoremap <silent> [unite]q :<C-u>UniteClose<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]t :<C-u>Unite buffer_tab<CR>
 
-nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
+"nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
 nnoremap <silent> [unite]g :<C-u>Unite grep:.<CR>
