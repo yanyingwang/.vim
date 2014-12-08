@@ -94,7 +94,7 @@ filetype plugin on
 "chdir----
 "CDC = Change to Directory of Current file
 :command CDC cd %:p:h
-:command shell VimShell
+:command Shell VimShell
 
 "auto save----
 ":set autowriteall             "save the file when you switch buffers
