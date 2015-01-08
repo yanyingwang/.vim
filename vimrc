@@ -64,6 +64,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'szw/vim-ctrlspace'
 "End BundlePlugins----------
 
 
@@ -111,6 +112,7 @@ if has('gui_running')
   "set guioptions-=m            "remove menu bar
   set guioptions-=T           "remove toolbar
   set guioptions-=r           "remove right-hand scroll bar
+  set guioptions-=l           "remove right-hand scroll bar
 else
   set background=dark
 endif
