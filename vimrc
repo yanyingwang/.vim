@@ -211,16 +211,16 @@ nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 "nnoremap <silent> [unite]f
 "      \ :<C-u>Unite -buffer-name=resume resume<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]ma
+nnoremap <silent> [unite]mp
       \ :<C-u>Unite mapping<CR>
-nnoremap <silent> [unite]me
+nnoremap <silent> [unite]ms
       \ :<C-u>Unite output:message<CR>
 nnoremap  [unite]a  :<C-u>Unite source<CR>
 
-nnoremap <silent> [unite]s
-      \ :<C-u>Unite -buffer-name=files -no-split
-      \ jump_point file_point buffer_tab
-      \ file_rec:! file file/new<CR>
+"nnoremap <silent> [unite]s
+      "\ :<C-u>Unite -buffer-name=files -no-split
+      "\ jump_point file_point buffer_tab
+      "\ file_rec:! file file/new<CR>
 
 " Start insert.
 "call unite#custom#profile('default', 'context', {
