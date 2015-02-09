@@ -133,10 +133,10 @@ set hlsearch                   "highlight searching
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 "auto reload vimrc----
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
+"augroup reload_vimrc
+"   autocmd!
+"   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"ugroup END
 "VimSetting-----------------------------------
 
 
@@ -185,26 +185,60 @@ let g:vim_markdown_no_default_key_mappings=1
 :command VPR VimProcRead
 
 
+"Vimfiler------
+let g:vimfiler_safe_mode_by_default = 0
+:set modifiable
+
+
 "unite--------
 let g:unite_source_history_yank_enable = 1
-"nnoremap <leader>f :<C-u>Unite file<CR>
-nnoremap <leader>/ :<C-u>Unite grep<CR>
+let g:unite_force_overwrite_statusline = 0
+let g:unite_source_alias_aliases = {
+		      \   'test' : {
+		      \     'source': 'file_rec',
+		      \     'args': '~/',
+		      \   },
+		      \   'b' : 'buffer',
+		      \   't' : 'buffer_tab',
+		      \   'cg' : 'change',
+		      \ }
+
+call unite#custom#alias('file', 'delete', 'vimfiler__delete')
+
+
 
 "Unite prefix key----
 nnoremap [unite] <Nop>
 nmap f [unite]
 
+nnoremap <silent> [unite]j
+	        \ :<C-u>Unite -buffer-name=files -no-split
+	        \ jump_point file_point buffer_tab <CR>
+
+
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+nnoremap <silent> [unite]v :<C-u>VimFiler<CR>
+
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]t :<C-u>Unite buffer_tab<CR>
+nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+nnoremap <silent> [unite]u :<C-u>UniteResume<CR>
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+nnoremap <silent> [unite]j :<C-u>Unite jumps<CR>
+nnoremap <silent> [unite]p :<C-u>Unite process<CR>
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
+
+nnoremap <silent> [unite]mm :<C-u>Unite bookmark<CR>
+nnoremap <silent> [unite]ma :<C-u>UniteBookmarkAdd<CR>
 
 "nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec<CR>
-"nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
-nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
+nnoremap <silent> [unite]4 :<C-u>UniteWithCursorWord -start-insert file_rec<CR>
 
 nnoremap <silent> [unite]g :<C-u>Unite grep:.<CR>
-nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+nnoremap <silent> [unite]h :<C-u>UniteWithCursorWord grep:.<CR>
+nnoremap <silent> [unite]/ :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]. :<C-u>UniteWithCursorWord grep<CR>
+
 
 "nnoremap <silent> [unite]r  :<C-u>Unite
 "      \ -buffer-name=register register<CR>
