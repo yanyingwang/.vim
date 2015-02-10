@@ -202,6 +202,7 @@ let g:unite_source_alias_aliases = {
 		      \   'b' : 'buffer',
 		      \   'm' : 'bookmark',
 		      \   'bm' : 'bookmark',
+		      \   'ba' : 'bookmark',
 		      \   'cg' : 'change',
 		      \   'y' : 'history/yank',
 		      \   'f' : 'file',
@@ -229,7 +230,7 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]u :<C-u>UniteResume<CR>
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
-nnoremap <silent> [unite]j :<C-u>Unite jumps<CR>
+nnoremap <silent> [unite]j :<C-u>Unite jump<CR>
 nnoremap <silent> [unite]p :<C-u>Unite process<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
