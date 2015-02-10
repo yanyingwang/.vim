@@ -227,7 +227,7 @@ nnoremap <silent> [unite]j :<C-u>Unite jumps<CR>
 nnoremap <silent> [unite]p :<C-u>Unite process<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
-nnoremap <silent> [unite]mm :<C-u>Unite bookmark<CR>
+nnoremap <silent> [unite]m :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]ma :<C-u>UniteBookmarkAdd<CR>
 
 "nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
