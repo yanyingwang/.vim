@@ -4,20 +4,21 @@ Config your vim from mine:
 
 Note: this document is validated on Ubuntu(trusty).
 
-Step 1
+
+安装
 --------------
+
+### Step 1
 ```shell
 sudo aptitude install -y exuberant-ctags
 ```
 
-Step 2
---------------
+### Step 2
 ```shell
 cd ~ && git clone https://github.com/yanyingwang/.vim.git
 ```
 
-Step 3
---------------
+#### Step 3
 ```shell
 vim
 ```
@@ -36,27 +37,26 @@ After install Unite.vim:
 * Unite neoBundle/update - update bundles
 * Unite neoBundle/clean(!) - confirm (or auto-approve) removal of unused bundles
 
-Step 4
---------------
+### Step 4
 So easy! Rock your vim, now!!!
 
 
-Vim自定义功能
+
+
+说明文档
 --------------
+
+### Vim自定义功能
 * zh zl 在buffer之前左右跳转
 * th tl 在tab之前左右跳转
 * 搜索完成后，按空格键取消高亮
 * W! 命令强制sudo写入文件
 
-unite.vim
---------------
+### unite.vim
 我的vim配置严重依赖于unite插件及其衍生插件。
 
 
-Unite相关快捷键列表
---------------
-
-正常模式下(normal mode)   
+### Unite相关快捷键列表(on normal mode)   
 
 | 命令 | 映射命令 | 作用 | 触发快捷键之后的快捷键说明 |
 |:-----------|------------:|:------------:|:------------:|
