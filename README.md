@@ -2,11 +2,11 @@ Config your vim from mine:
 ==============
 
 
-Note: this document is validated on Ubuntu(trusty).
-
 
 安装
 --------------
+
+Note: this document is only tested on Ubuntu(trusty).
 
 ### Step 1
 ```shell
@@ -43,6 +43,8 @@ So easy! Rock your vim, now!!!
 
 
 
+ 
+
 说明文档
 --------------
 
@@ -59,7 +61,7 @@ So easy! Rock your vim, now!!!
 ### Unite相关快捷键列表(on normal mode)   
 
 | 命令 | 映射命令 | 作用 | 触发快捷键之后的快捷键说明 |
-|:-----------|------------:|:------------:|:------------:|
+|:-----------|:------------:|:------------:|:------------:|
 | ff | Unite file | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件
 | fb | Unite buffer | 打开unite buffer | d关闭选中buffer
 | ft | Unite tab | 打开unite tab | none
