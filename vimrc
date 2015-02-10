@@ -228,6 +228,7 @@ nnoremap <silent> [unite]j
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
 nnoremap <silent> [unite]v :<C-u>VimFiler<CR>
+nnoremap <silent> [unite]h :<C-u>VimShell<CR>
 
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
@@ -238,17 +239,17 @@ nnoremap <silent> [unite]p :<C-u>Unite process<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
 nnoremap <silent> [unite]m :<C-u>Unite bookmark<CR>
-nnoremap <silent> [unite]mm :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]ma :<C-u>UniteBookmarkAdd<CR>
 
 "nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec<CR>
-nnoremap <silent> [unite]4 :<C-u>UniteWithCursorWord -start-insert file_rec<CR>
+nnoremap <silent> [unite]rw :<C-u>UniteWithCursorWord -start-insert file_rec<CR>
 
 nnoremap <silent> [unite]g :<C-u>Unite grep:.<CR>
-nnoremap <silent> [unite]h :<C-u>UniteWithCursorWord grep:.<CR>
+nnoremap <silent> [unite]gw :<C-u>UniteWithCursorWord grep:.<CR>
+
 nnoremap <silent> [unite]/ :<C-u>Unite grep<CR>
-nnoremap <silent> [unite]. :<C-u>UniteWithCursorWord grep<CR>
+nnoremap <silent> [unite]/w :<C-u>UniteWithCursorWord grep<CR>
 
 
 "nnoremap <silent> [unite]r  :<C-u>Unite
