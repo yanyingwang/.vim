@@ -97,6 +97,9 @@ filetype plugin on
 :command CDC cd %:p:h
 :command Shell VimShell
 
+"delay the timeout of key sequences
+set timeoutlen=200
+
 "auto save----
 ":set autowriteall             "save the file when you switch buffers
 ":au FocusLost * :wa           "save file when focusLost
