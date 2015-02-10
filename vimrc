@@ -201,6 +201,7 @@ let g:unite_source_alias_aliases = {
 		      \   't' : 'tab',
 		      \   'b' : 'buffer',
 		      \   'm' : 'bookmark',
+		      \   'bm' : 'bookmark',
 		      \   'cg' : 'change',
 		      \   'y' : 'history/yank',
 		      \   'f' : 'file',
