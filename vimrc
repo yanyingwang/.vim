@@ -198,9 +198,14 @@ let g:unite_source_alias_aliases = {
 		      \     'source': 'file_rec',
 		      \     'args': '~/',
 		      \   },
+		      \   't' : 'tab',
 		      \   'b' : 'buffer',
-		      \   't' : 'buffer_tab',
+		      \   'm' : 'bookmark',
 		      \   'cg' : 'change',
+		      \   'y' : 'history/yank',
+		      \   'f' : 'file',
+		      \   'p' : 'process',
+		      \   'j' : 'jump',
 		      \ }
 
 call unite#custom#alias('file', 'delete', 'vimfiler__delete')
@@ -228,6 +233,7 @@ nnoremap <silent> [unite]p :<C-u>Unite process<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file<CR>
 
 nnoremap <silent> [unite]m :<C-u>Unite bookmark<CR>
+nnoremap <silent> [unite]mm :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]ma :<C-u>UniteBookmarkAdd<CR>
 
 "nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
