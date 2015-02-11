@@ -323,9 +323,9 @@ function! s:unite_my_settings()"{{{
         \ ['sorter_reverse'] : [])
 
   nnoremap <silent><buffer><expr> <C-s>     unite#do_action('below')
-  nnoremap <silent><buffer><expr> <C-S-s>     unite#do_action('below')
+  nnoremap <silent><buffer><expr> <C-S-s>     unite#do_action('above')
   nnoremap <silent><buffer><expr> <C-v>     unite#do_action('right')
-  nnoremap <silent><buffer><expr> <C-S-v>     unite#do_action('right')
+  nnoremap <silent><buffer><expr> <C-S-v>     unite#do_action('left')
   nnoremap <silent><buffer><expr> <C-t>     unite#do_action('tabopen')
 endfunction"}}}
   "nnoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
