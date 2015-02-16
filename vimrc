@@ -30,7 +30,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'   "Let NeoBundle manage NeoBundle
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'Raimondi/delimitMate'        "automatic closing of quotes
 NeoBundle 'scrooloose/nerdcommenter'    "comment code block <leader>cc <leader>cu
-NeoBundle 'bronson/vim-trailing-whitespace'
+"NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
