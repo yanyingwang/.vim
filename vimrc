@@ -64,10 +64,17 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'dag/vim-fish.git'
 "End BundlePlugins----------
 
 
 call neobundle#end()
+
+
+" fish as login in shell
+if &shell =~# 'fish$'
+    set shell=sh
+endif
 
 filetype plugin indent on
 
