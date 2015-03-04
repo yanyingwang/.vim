@@ -105,7 +105,7 @@ filetype plugin on
 :command Shell VimShell
 
 "delay the timeout of key sequences
-set timeoutlen=500
+set timeoutlen=600
 
 "auto save----
 ":set autowriteall             "save the file when you switch buffers
