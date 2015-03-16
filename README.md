@@ -68,7 +68,7 @@ So easy! Rock your vim, now!!!
 | fv | VimFiler | 打开文件浏览高级 | K新建目录
 | fh | VimShell | open VimShell | esc进入normal mode
 | fu | UniteResume | 恢复上一次Unite操作(open Unite file if last opration is it) | none
-| fr | | 依次搜索文件 | none | none
+| fr |  none | 依次搜索文件 | none
 | frw | 依次搜索文件，根据当前光标高亮文字 | none | none
 | fp | Unite process | 查看进程 | | /开始搜索，d杀掉进程
 | fc | none | 打开当前编辑文件目录 | none
