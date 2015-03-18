@@ -116,6 +116,7 @@ colorscheme solarized
 if has('gui_running')
   "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
+  "set guifont=Inconsolata\ LGC\ Bold\ 10
   set guifont=Ubuntu\ Mono\ Bold\ 11
   set background=light
   "set guioptions-=m            "remove menu bar
