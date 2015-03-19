@@ -91,6 +91,7 @@ set nocompatible              "be vim
 set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "enable mouse usage (all modes)
 set hidden
+set modifiable
 
 :let mapleader=","            "set mapleader key
 
