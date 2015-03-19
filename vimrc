@@ -92,6 +92,7 @@ set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "enable mouse usage (all modes)
 set hidden
 set modifiable
+set linespace=3
 
 :let mapleader=","            "set mapleader key
 
@@ -118,7 +119,8 @@ if has('gui_running')
   "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
   "set guifont=Inconsolata\ LGC\ Bold\ 10
-  set guifont=Ubuntu\ Mono\ Bold\ 11
+  "set guifont=Ubuntu\ Mono\ Bold\ 11
+  set guifont=Input\ Mono\ Bold\ 9
   set background=light
   "set guioptions-=m            "remove menu bar
   set guioptions-=T           "remove toolbar
