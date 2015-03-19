@@ -62,7 +62,7 @@ So easy! Rock your vim, now!!!
 
 | 命令 | 映射命令 | 作用 | 触发快捷键之后的快捷键说明 |
 |:-----------|:------------:|:------------:|:------------:|
-| ff | Unite file | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件
+| ff | Unite file | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件, d删除文件
 | fb | Unite buffer | 打开unite buffer | d关闭选中buffer
 | ft | Unite tab | 打开unite tab | none
 | fv | VimFiler | 打开文件浏览高级 | K新建目录
