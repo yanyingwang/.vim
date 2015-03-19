@@ -92,7 +92,7 @@ set clipboard=unnamedplus     "murge vim clipboard to system clipboard
 set mouse=a		              "enable mouse usage (all modes)
 set hidden
 set modifiable
-set linespace=3
+"set linespace=3
 
 :let mapleader=","            "set mapleader key
 
