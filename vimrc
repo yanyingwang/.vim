@@ -65,6 +65,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'dag/vim-fish.git'
+NeoBundle 'tsukkee/unite-tag'
 "End BundlePlugins----------
 
 
