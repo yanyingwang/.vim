@@ -164,6 +164,13 @@ cmap W! w !sudo tee > /dev/null %
 map <C-tab> <C-W> w
 
 
+"cursor movment mapping in insert mode----
+map <C-f> <Right>
+map <C-b> <Left>
+map <C-n> <Down>
+map <C-p> <Up>
+
+
 "Buffer switch mapping----
 "Buffer prefix key----
 nnoremap [buffer] <Nop>
