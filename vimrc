@@ -160,6 +160,10 @@ set hlsearch                   "highlight searching
 cmap W! w !sudo tee > /dev/null %
 "":command W! w !sudo tee > /dev/null %
 
+"Ctrl-W w mapping----
+map <C-tab> <C-W> w
+
+
 "Buffer switch mapping----
 "Buffer prefix key----
 nnoremap [buffer] <Nop>
