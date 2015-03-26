@@ -16,6 +16,7 @@ sudo aptitude install -y exuberant-ctags
 ### Step 2
 ```shell
 cd ~ && git clone https://github.com/yanyingwang/.vim.git
+ln -sf ~/.vim/vimrc ~/.vimrc  # run this cmd only if your system is Mac.
 ```
 
 #### Step 3
@@ -23,7 +24,7 @@ cd ~ && git clone https://github.com/yanyingwang/.vim.git
 vim
 ```
 
-If nothing happen, type command below in the vim:
+If nothing happened, run command below in the vim:
 ```shell
 :NeoBundleInstall!
 ```
@@ -53,13 +54,13 @@ So easy! Rock your vim, now!!!
 * th tl 在tab之前左右跳转
 * 搜索完成后，按空格键取消高亮
 * W! 命令强制sudo写入文件
+* C-tab 相当于C-w w，在打开的窗口之间切换
 
 ### unite.vim
 我的vim配置严重依赖于unite插件及其衍生插件。
 
 
 ### Unite相关快捷键列表(on normal mode)   
-
 | 命令 | 映射命令 | 作用 | 触发快捷键之后的快捷键说明 |
 |:-----------|:------------:|:------------:|:------------:|
 | ff | Unite file | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件, d删除文件, '进入快速打开文件模式-再按<C-c>则退出此状态
@@ -67,7 +68,7 @@ So easy! Rock your vim, now!!!
 | ft | Unite tab | 打开unite tab | none
 | fv | VimFiler | 打开文件浏览高级 | K新建目录
 | fh | VimShell | open VimShell | esc进入normal mode
-| fu | UniteResume | 恢复上一次Unite操作(open Unite file if last opration is it) | none
+| fu | UniteResume | 恢复上一次Unite操作(open Unite file if it's the last opration) | none
 | fr |  none | 依次搜索文件 | none
 | frw | none | 依次搜索文件，根据当前光标高亮文字 | none
 | fp | Unite process | 查看进程 | | /开始搜索，d杀掉进程
