@@ -165,10 +165,10 @@ map <C-tab> <C-W> w
 
 
 "cursor movment mapping in insert mode----
-map <C-f> <Right>
-map <C-b> <Left>
-map <C-n> <Down>
-map <C-p> <Up>
+imap <C-f> <Right>
+imap <C-b> <Left>
+imap <C-n> <Down>
+imap <C-p> <Up>
 
 
 "Buffer switch mapping----

@@ -52,9 +52,14 @@ So easy! Rock your vim, now!!!
 ### Vim自定义功能
 * zh zl 在buffer之前左右跳转
 * th tl 在tab之前左右跳转
+
 * 搜索完成后，按空格键取消高亮
+
 * W! 命令强制sudo写入文件
+
 * C-tab 相当于C-w w，在打开的窗口之间切换
+
+* emacs方式的移动光标(<C-f>|<C-b>|<C-n>|<C-p>)，在insert mode下。
 
 ### unite.vim
 我的vim配置严重依赖于unite插件及其衍生插件。
