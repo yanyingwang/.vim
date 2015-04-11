@@ -251,6 +251,7 @@ nnoremap <silent> [unite]j
 
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
 nnoremap <silent> [unite]v :<C-u>VimFiler<CR>
+nnoremap <silent> [unite]e :<C-u>VimFilerExplorer<CR>
 nnoremap <silent> [unite]h :<C-u>VimShell<CR>
 
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>

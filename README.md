@@ -72,6 +72,7 @@ So easy! Rock your vim, now!!!
 | fb | Unite buffer | 打开unite buffer | d关闭选中buffer
 | ft | Unite tab | 打开unite tab | none
 | fv | [VimFiler](https://github.com/Shougo/vimfiler.vim) | 打开文件浏览高级 | K新建目录
+| fe | VimFilerExplorer | 从左侧窗口打开文件浏览高级 |
 | fh | [VimShell](https://github.com/Shougo/vimshell.vim) | open VimShell | esc进入normal mode
 | fu | UniteResume | 恢复上一次Unite操作(open Unite file if it's the last opration) | none
 | fr |  none | 依次搜索文件 | none
