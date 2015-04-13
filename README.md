@@ -71,7 +71,7 @@ So easy! Rock your vim, now!!!
 | ff | [Unite file](https://github.com/Shougo/unite.vim) | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件, d删除文件, '进入快速打开文件模式-再按<C-c>则退出此状态
 | fb | Unite buffer | 打开unite buffer | d关闭选中buffer
 | ft | Unite tab | 打开unite tab | none
-| fv | [VimFiler](https://github.com/Shougo/vimfiler.vim) | 打开文件浏览高级 | K新建目录
+| fv | [VimFiler](https://github.com/Shougo/vimfiler.vim) | 打开文件浏览高级 | K新建目录, N新建文件，M移动选中文件，空格选中文件
 | fe | VimFilerExplorer | 从左侧窗口打开文件浏览高级 |
 | fh | [VimShell](https://github.com/Shougo/vimshell.vim) | open VimShell | esc进入normal mode
 | fu | UniteResume | 恢复上一次Unite操作(open Unite file if it's the last opration) | none
