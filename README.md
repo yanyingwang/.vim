@@ -49,6 +49,10 @@ So easy! Rock your vim, now!!!
 说明文档
 --------------
 
+### 复制粘贴
+vim的复制粘贴通过配置文件已经和系统融合，请安装`vim-gtk`。
+
+
 ### Vim自定义功能
 * zh zl 在buffer之前左右跳转
 * th tl 在tab之前左右跳转
