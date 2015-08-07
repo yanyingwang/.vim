@@ -33,6 +33,7 @@ NeoBundle 'scrooloose/nerdcommenter'    "comment code block <leader>cc <leader>c
 "NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'morhetz/gruvbox.git'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -116,6 +117,7 @@ set timeoutlen=600
 
 "color scheme and fonts----
 colorscheme solarized
+"colorscheme gruvbox
 if has('gui_running')
   "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
