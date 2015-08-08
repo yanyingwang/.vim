@@ -116,8 +116,8 @@ set timeoutlen=600
 ":au FocusLost * :wa           "save file when focusLost
 
 "color scheme and fonts----
-colorscheme solarized
-"colorscheme gruvbox
+"colorscheme solarized
+colorscheme gruvbox
 if has('gui_running')
   "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
