@@ -32,8 +32,13 @@ NeoBundle 'Raimondi/delimitMate'        "automatic closing of quotes
 NeoBundle 'scrooloose/nerdcommenter'    "comment code block <leader>cc <leader>cu
 "NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'kien/rainbow_parentheses.vim'
+
+
+" colors
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'morhetz/gruvbox.git'
+
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -58,6 +63,7 @@ NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'groenewege/vim-less'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'hallison/vim-ruby-sinatra'
 NeoBundle 'vim-scripts/SudoEdit.vim'
@@ -115,9 +121,13 @@ set timeoutlen=600
 ":set autowriteall             "save the file when you switch buffers
 ":au FocusLost * :wa           "save file when focusLost
 
+
+
 "color scheme and fonts----
-"colorscheme solarized
-colorscheme gruvbox
+colorscheme solarized
+"colorscheme gruvbox
+"colorscheme pencil
+
 if has('gui_running')
   "set guifont=Monaco\ 9
   "set guifont=Monaco\ Bold\ 9
@@ -524,3 +534,7 @@ endif
   "autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 "endif
 "End Other------------------------------------
+"
+"
+"
+
