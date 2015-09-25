@@ -27,6 +27,7 @@ endif
 NeoBundleFetch 'Shougo/neobundle.vim'   "Let NeoBundle manage NeoBundle
 
 "Bundleplugins----------
+NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'Raimondi/delimitMate'        "automatic closing of quotes
 NeoBundle 'scrooloose/nerdcommenter'    "comment code block <leader>cc <leader>cu
@@ -80,11 +81,11 @@ call neobundle#end()
 
 
 " fish as login in shell
-if &shell =~# 'fish$'
-    set shell=sh
-endif
+"if &shell =~# 'fish$'
+    "set shell=sh
+"endif
 
-filetype plugin indent on
+"filetype plugin indent on
 
 NeoBundleCheck                "prompt uninstalled plugin on startup
 "End NeoBundle-----------------------------------
@@ -146,8 +147,8 @@ endif
 "code indent----
 set autoindent
 set expandtab
-set tabstop=4 shiftwidth=2 softtabstop=2
-"set tabstop=8 shiftwidth=4 softtabstop=4
+"set tabstop=4 shiftwidth=2 softtabstop=2
+set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType python set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType sh set tabstop=8 shiftwidth=4 softtabstop=4
 au FileType ruby set tabstop=4 shiftwidth=2 softtabstop=2
