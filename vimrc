@@ -93,7 +93,8 @@ NeoBundleCheck                "prompt uninstalled plugin on startup
 
 
 "VimSetting-----------------------------------
-set notitle
+"set notitle
+set title
 set nu
 set t_Co=256
 "set fileencodings=utf-8,gb18030,gbk,gb2312,big5
