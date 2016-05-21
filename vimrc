@@ -41,6 +41,7 @@ NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'morhetz/gruvbox.git'
 
 NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/unite-outline'
