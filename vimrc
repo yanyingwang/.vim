@@ -24,6 +24,8 @@ if system('uname -o') =~ '^GNU/'
   let g:make = 'make'
 endif
 
+set backspace=indent,eol,start
+
 NeoBundleFetch 'Shougo/neobundle.vim'   "Let NeoBundle manage NeoBundle
 
 "Bundleplugins----------
