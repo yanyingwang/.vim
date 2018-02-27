@@ -95,6 +95,11 @@ NeoBundleCheck                "prompt uninstalled plugin on startup
 
 
 
+
+
+autocmd filetype crontab set nobackup nowritebackup
+
+
 "VimSetting-----------------------------------
 "set notitle
 set title
