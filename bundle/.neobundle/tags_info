@@ -5,6 +5,7 @@ gruvbox
 neobundle.vim
 nerdcommenter
 nginx-vim-syntax
+rainbow
 rainbow_parentheses.vim
 supertab
 syntastic
