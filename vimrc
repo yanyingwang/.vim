@@ -1,3 +1,7 @@
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
+
 "NeoBundle-----------------------------------
 if !1 | finish | endif                  "Skip initialization for vim-tiny or vim-small.
 
@@ -581,4 +585,5 @@ endif
 "
 "
 "
+
 
