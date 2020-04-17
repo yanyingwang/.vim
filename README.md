@@ -1,25 +1,25 @@
-Config your vim from mine:
-==============
+<img src="https://raw.githubusercontent.com/yanyingwang/.vim/vim-old/favicon.png" alt="favicon" width="150"/>
+
+**.vim** - My Vim configration file.
+
+---
 
 
 
-安装
---------------
+# 安装
 
-Note: this document is only tested on Ubuntu(trusty).
-
-### Step 1
+## Step 1
 ```shell
 sudo aptitude install -y exuberant-ctags
 ```
 
-### Step 2
+## Step 2
 ```shell
 cd ~ && git clone https://github.com/yanyingwang/.vim.git
 ln -sf ~/.vim/vimrc ~/.vimrc  # run this cmd only if your system is Mac.
 ```
 
-#### Step 3
+### Step 3
 ```shell
 vim
 ```
@@ -38,7 +38,7 @@ After install Unite.vim:
 * Unite neoBundle/update - update bundles
 * Unite neoBundle/clean(!) - confirm (or auto-approve) removal of unused bundles
 
-### Step 4
+## Step 4
 So easy! Rock your vim, now!!!
 
 
@@ -46,14 +46,13 @@ So easy! Rock your vim, now!!!
 
  
 
-说明文档
---------------
+# 说明文档
 
-### 复制粘贴
+## 复制粘贴
 vim的复制粘贴通过配置文件已经和系统融合，请安装`vim-gtk`。
 
 
-### Vim自定义功能
+## Vim自定义功能
 * zh zl 在buffer之前左右跳转
 * th tl 在tab之前左右跳转
 
@@ -65,11 +64,11 @@ vim的复制粘贴通过配置文件已经和系统融合，请安装`vim-gtk`�
 
 * emacs方式的移动光标(<C-f>|<C-b>|<C-n>|<C-p>)，在insert mode下。
 
-### unite.vim
+## unite.vim
 我的vim配置严重依赖于unite插件及其衍生插件。
 
 
-### Unite相关快捷键列表(on normal mode)   
+## Unite相关快捷键列表(on normal mode)   
 | 快捷键 | 映射命令 | 作用 | 触发快捷键之后的快捷键说明 |
 |:-----------|:------------:|:------------:|:------------:|
 | ff | [Unite file](https://github.com/Shougo/unite.vim) | 打开文件浏览 | Q,q退出，i进入插入模式， r重命名文件，N新建文件, d删除文件, '进入快速打开文件模式-再按<C-c>则退出此状态
