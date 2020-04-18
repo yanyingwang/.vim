@@ -19,7 +19,7 @@ cd ~ && git clone https://github.com/yanyingwang/.vim.git
 ln -sf ~/.vim/vimrc ~/.vimrc  # run this cmd only if your system is Mac.
 ```
 
-### Step 3
+## Step 3
 ```shell
 vim
 ```
