@@ -172,7 +172,8 @@ set timeoutlen=600
 
 
 "color scheme and fonts----
-colorscheme solarized
+"colorscheme solarized
+colorscheme gruvbox
 "colorscheme gruvbox
 "colorscheme pencil
 
